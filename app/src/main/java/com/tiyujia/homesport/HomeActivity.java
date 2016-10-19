@@ -10,7 +10,6 @@ public class HomeActivity extends ImmersiveActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
     }
 
     @Override
