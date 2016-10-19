@@ -6,16 +6,20 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tiyujia.homesport.common.active.fragment.ActiveFragment;
@@ -27,7 +31,7 @@ import com.tiyujia.homesport.widget.CustomViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends ImmersiveActivity implements View.OnClickListener{
+public class HomeActivity extends FragmentActivity implements View.OnClickListener{
     private final static int ACTIVE = 0;
     private final static int COMMUNITY = 1;
     private final static int CONCERN = 2;
@@ -43,6 +47,7 @@ public class HomeActivity extends ImmersiveActivity implements View.OnClickListe
     ConcernFragment concernFragment=null;
     PersonalFragment personalFragment=null;
     private String token,id;
+    private RelativeLayout relative;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +71,8 @@ public class HomeActivity extends ImmersiveActivity implements View.OnClickListe
                 ft.commit();
             }
         }
+        tvTitle.setText("活动");
+        setTabSelection(ACTIVE);// 设置默认选中的tab页
         SharedPreferences share = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
         token = share.getString("Token",null);
         id = share.getString("UserId","");
@@ -116,6 +123,7 @@ public class HomeActivity extends ImmersiveActivity implements View.OnClickListe
         tabCommunity=(Button)findViewById(R.id.tab_community_btn);
         tabConcern=(Button)findViewById(R.id.tab_concern_btn);
         tabPersonal=(Button)findViewById(R.id.tab_personal_btn);
+        relative=(RelativeLayout) findViewById(R.id.relative);
         tabActivie.setOnClickListener(this);
         tabCommunity.setOnClickListener(this);
         tabConcern.setOnClickListener(this);
@@ -219,15 +227,22 @@ public class HomeActivity extends ImmersiveActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.tab_active_btn:
                 setTabSelection(ACTIVE);
+                tvTitle.setText("活动");
+                relative.setVisibility(View.VISIBLE);
                 break;
             case R.id.tab_community_btn:
                 setTabSelection(COMMUNITY);
+                tvTitle.setText("社区");
+                relative.setVisibility(View.VISIBLE);
                 break;
             case R.id.tab_concern_btn:
                 setTabSelection(CONCERN);
+                tvTitle.setText("我的关注");
+                relative.setVisibility(View.VISIBLE);
                 break;
             case R.id.tab_personal_btn:
                 setTabSelection(PERSONAL);
+                relative.setVisibility(View.GONE);
                 break;
             default:
                 setTabSelection(ACTIVE);

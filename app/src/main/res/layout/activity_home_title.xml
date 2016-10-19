@@ -1,24 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/app_bar_layout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    app:elevation="6dp"
+<RelativeLayout style="@style/personal_title_background"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative"
     >
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        >
-    <RelativeLayout
-        style="@style/personal_title_background"
-        >
         <TextView
             android:id="@+id/home_address"
             style="@style/personal_back"
@@ -34,5 +18,3 @@
             android:layout_alignParentRight="true"
             />
     </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
-</android.support.design.widget.AppBarLayout>
