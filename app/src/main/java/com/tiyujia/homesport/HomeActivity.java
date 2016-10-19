@@ -144,6 +144,12 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         pager.setSlide(false);
     }
 
+
+    /**
+     * note:   Adapter
+     * Create : Cymbi 2016/10/19 14:54
+     * email:928902646@qq.com
+     */
     private class HomeFragmentPagerAdapter extends FragmentPagerAdapter {
         private List<Fragment> fragmentList;
         public HomeFragmentPagerAdapter(FragmentManager fm, List<Fragment> fragmentList) {
