@@ -1,5 +1,4 @@
-package com.tiyujia.homesport.common.concern.fragment;
-
+package com.tiyujia.homesport.common.personal.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,13 +12,13 @@ import com.tiyujia.homesport.R;
 /**
  * Created by zzqybyb19860112 on 2016/10/18.
  */
-public class ConcernFragment extends Fragment{
+public class PersonalFragment extends Fragment{
     private View view;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       view = inflater.inflate(R.layout.concern_fragment,null);
+        view=inflater.inflate(R.layout.personal_fragment,null);
         return view;
     }
 }

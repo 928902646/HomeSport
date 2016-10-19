@@ -15,7 +15,7 @@
         >
 
         <Button
-            android:id="@+id/tab_info_btn"
+            android:id="@+id/tab_active_btn"
             android:layout_width="@dimen/tab_touch_height_bottom"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -40,7 +40,7 @@
         >
 
         <Button
-            android:id="@+id/tab_stand_btn"
+            android:id="@+id/tab_community_btn"
             android:layout_width="@dimen/tab_touch_height_bottom"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -65,7 +65,7 @@
         >
 
         <Button
-            android:id="@+id/tab_pack_btn"
+            android:id="@+id/tab_concern_btn"
             android:layout_width="@dimen/tab_touch_height_bottom"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -89,7 +89,7 @@
         >
 
         <Button
-            android:id="@+id/tab_play_btn"
+            android:id="@+id/tab_personal_btn"
             android:layout_width="@dimen/tab_touch_height_bottom"
             android:layout_height="match_parent"
             android:layout_gravity="center"
