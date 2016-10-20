@@ -1,1 +1,6 @@
 /build
+/okgo.iml
+/proguard-rules.pro
+/.gitignore
+/bintray.gradle
+/build.gradle
