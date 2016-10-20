@@ -7,3 +7,8 @@
 /captures
 *.class
 *.apk
+/.idea
+/gradle
+/HomeSport.iml
+/gradle.properties
+/settings.gradle
