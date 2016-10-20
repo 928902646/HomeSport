@@ -1,4 +1,4 @@
-package com.tiyujia.homesport.common.utils;
+package com.tiyujia.homesport.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -1,4 +1,4 @@
-package com.tiyujia.homesport.common.utils;
+package com.tiyujia.homesport.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
