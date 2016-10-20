@@ -35,9 +35,7 @@ public class ActiveActivity extends ImmersiveActivity implements View.OnClickLis
         initview();
         ActiveAdapter adapter = new ActiveAdapter(getSupportFragmentManager(), mFragment, mTitle);
         viewpager.setAdapter(adapter);
-        viewpager.setOffscreenPageLimit(2);
         tablayout.setupWithViewPager(viewpager);
-        tablayout.setTabsFromPagerAdapter(adapter);
         tablayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tablayout.setTabMode(TabLayout.MODE_FIXED);
     }

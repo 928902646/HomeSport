@@ -1,5 +1,5 @@
-/build
-/.gitignore
-/build.gradle
-/imagepicker.iml
+build
+.gitignore
+build.gradle
+imagepicker.iml
 proguard-rules.pro
