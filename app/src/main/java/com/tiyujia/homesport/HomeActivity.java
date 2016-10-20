@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tiyujia.homesport.common.active.fragment.ActiveFragment;
 import com.tiyujia.homesport.common.community.fragment.CommunityFragment;
@@ -48,6 +49,8 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     PersonalFragment personalFragment=null;
     private String token,id;
     private RelativeLayout relative;
+    private ImageView ivAdd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,11 +126,13 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         tabCommunity=(Button)findViewById(R.id.tab_community_btn);
         tabConcern=(Button)findViewById(R.id.tab_concern_btn);
         tabPersonal=(Button)findViewById(R.id.tab_personal_btn);
+        ivAdd=(ImageView)findViewById(R.id.home_add);
         relative=(RelativeLayout) findViewById(R.id.relative);
         tabActivie.setOnClickListener(this);
         tabCommunity.setOnClickListener(this);
         tabConcern.setOnClickListener(this);
         tabPersonal.setOnClickListener(this);
+        ivAdd.setOnClickListener(this);
         pager.addOnPageChangeListener(new HomeViewPagerListener());
         fragmentList = new ArrayList<Fragment>();
         activeFragment=new ActiveFragment();
@@ -234,21 +239,31 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             case R.id.tab_active_btn:
                 setTabSelection(ACTIVE);
                 tvTitle.setText("活动");
+                ivAdd.setVisibility(View.GONE);
+                ivSearch.setVisibility(View.VISIBLE);
                 relative.setVisibility(View.VISIBLE);
                 break;
             case R.id.tab_community_btn:
                 setTabSelection(COMMUNITY);
                 tvTitle.setText("社区");
+                ivAdd.setVisibility(View.GONE);
+                ivSearch.setVisibility(View.GONE);
                 relative.setVisibility(View.VISIBLE);
                 break;
             case R.id.tab_concern_btn:
                 setTabSelection(CONCERN);
                 tvTitle.setText("我的关注");
+                tvAddress.setVisibility(View.GONE);
+                ivAdd.setVisibility(View.VISIBLE);
+                ivSearch.setVisibility(View.VISIBLE);
                 relative.setVisibility(View.VISIBLE);
                 break;
             case R.id.tab_personal_btn:
                 setTabSelection(PERSONAL);
                 relative.setVisibility(View.GONE);
+                break;
+            case R.id.home_add:
+                Toast.makeText(this,"点了",Toast.LENGTH_SHORT).show();
                 break;
             default:
                 setTabSelection(ACTIVE);

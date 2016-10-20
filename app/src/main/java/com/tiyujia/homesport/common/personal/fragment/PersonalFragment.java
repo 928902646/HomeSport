@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.tiyujia.homesport.R;
+import com.tiyujia.homesport.common.personal.activity.ActiveActivity;
 import com.tiyujia.homesport.common.personal.activity.PersonalSystemSetting;
 
 /**
@@ -18,6 +20,7 @@ import com.tiyujia.homesport.common.personal.activity.PersonalSystemSetting;
 public class PersonalFragment extends Fragment implements View.OnClickListener{
     private View view;
     private ImageView ivSetting;
+    private TextView tvActive;
 
     @Nullable
     @Override
@@ -28,14 +31,20 @@ public class PersonalFragment extends Fragment implements View.OnClickListener{
     }
     private void setview() {
         ivSetting=(ImageView)view.findViewById(R.id.ivSetting);
+        tvActive=(TextView)view.findViewById(R.id.tvActive);
         ivSetting.setOnClickListener(this);
+        tvActive.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ivSetting:
-                Intent i=new Intent(getActivity(), PersonalSystemSetting.class);
-                getActivity().startActivity(i);
+                Intent a=new Intent(getActivity(), PersonalSystemSetting.class);
+                getActivity().startActivity(a);
+                break;
+            case R.id.tvActive:
+                Intent b=new Intent(getActivity(), ActiveActivity.class);
+                getActivity().startActivity(b);
                 break;
         }
     }

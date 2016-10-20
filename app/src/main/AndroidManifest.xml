@@ -15,6 +15,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".common.personal.activity.PersonalSystemSetting"/>
+        <activity android:name=".common.personal.activity.ActiveActivity"/>
     </application>
 
 </manifest>
