@@ -4,4 +4,11 @@
 /.idea/libraries
 .DS_Store
 /build
-/captures
+captures
+*.class
+*.apk
+.idea
+gradle
+gradle.properties
+settings.gradle
+HomeSport.iml

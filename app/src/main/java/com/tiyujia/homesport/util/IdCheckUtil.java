@@ -1,4 +1,4 @@
-package com.tiyujia.homesport.common.utils;
+package com.tiyujia.homesport.util;
 
 /**
  * 作者: Cymbi on 2016/10/20 10:20.

@@ -10,12 +10,12 @@
             />
         <TextView
             style="@style/personal_title"
-            android:text="意见反馈"
+            android:text="@string/personal_setting_feedback"
             />
         <TextView
             android:id="@+id/tvPush"
             style="@style/personal_title"
-            android:text="提交"
+            android:text="@string/personal_setting_push"
             android:layout_alignParentRight="true"
             android:paddingRight="12dp"
             />

@@ -1,4 +1,4 @@
-package com.tiyujia.homesport.common.utils;
+package com.tiyujia.homesport.util;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
