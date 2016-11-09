@@ -10,10 +10,10 @@ import java.util.List;
 /**
  * Created by yf928 on 2016/7/18.
  */
-public class ActiveAdapter extends FragmentPagerAdapter {
+public class PersonalActiveAdapter extends FragmentPagerAdapter {
     private List<Fragment> views;
     private List<String> titles;
-    public ActiveAdapter(FragmentManager fm, List<Fragment> views, List<String>titles) {
+    public PersonalActiveAdapter(FragmentManager fm, List<Fragment> views, List<String>titles) {
         super(fm);
         if(views.size()==0){
             this.views=new ArrayList<>();

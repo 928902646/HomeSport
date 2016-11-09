@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import com.tiyujia.homesport.ImmersiveActivity;
 import com.tiyujia.homesport.R;
-import com.tiyujia.homesport.common.personal.adapter.ActiveAdapter;
+import com.tiyujia.homesport.common.personal.adapter.PersonalActiveAdapter;
 import com.tiyujia.homesport.common.personal.fragment.AttendFragment;
 import com.tiyujia.homesport.common.personal.fragment.IssueFragment;
 
@@ -33,7 +33,7 @@ public class ActiveActivity extends ImmersiveActivity implements View.OnClickLis
         setContentView(R.layout.active_activity);
         setview();
         initview();
-        ActiveAdapter adapter = new ActiveAdapter(getSupportFragmentManager(), mFragment, mTitle);
+        PersonalActiveAdapter adapter = new PersonalActiveAdapter(getSupportFragmentManager(), mFragment, mTitle);
         viewpager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewpager);
         tablayout.setTabGravity(TabLayout.GRAVITY_FILL);

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -14,7 +13,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -23,9 +21,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.tiyujia.homesport.common.active.fragment.ActiveFragment;
+import com.tiyujia.homesport.common.homepage.fragment.HomePageFragment;
 import com.tiyujia.homesport.common.community.fragment.CommunityFragment;
-import com.tiyujia.homesport.common.concern.fragment.ConcernFragment;
+import com.tiyujia.homesport.common.record.fragment.RecordFragment;
 import com.tiyujia.homesport.common.personal.fragment.PersonalFragment;
 import com.tiyujia.homesport.widget.CustomViewPager;
 
@@ -39,17 +37,13 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     private final static int PERSONAL = 3;
     private int currentTabIndex = 0; // 当前tab下标
     private CustomViewPager pager;
-    private TextView tvAddress,tvTitle;
-    private ImageView ivSearch;
     private Button tabActivie,tabCommunity,tabConcern,tabPersonal;
     List<Fragment> fragmentList;
-    ActiveFragment activeFragment=null;
+    HomePageFragment activeFragment=null;
     CommunityFragment communityFragment=null;
-    ConcernFragment concernFragment=null;
+    RecordFragment concernFragment=null;
     PersonalFragment personalFragment=null;
     private String token,id;
-    private RelativeLayout relative;
-    private ImageView ivAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +68,6 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                 ft.commit();
             }
         }
-        tvTitle.setText("活动");
         setTabSelection(ACTIVE);// 设置默认选中的tab页
         SharedPreferences share = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
         token = share.getString("Token",null);
@@ -118,26 +111,20 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         }
     }
     private void setview() {
-        tvAddress=(TextView)findViewById(R.id.home_address);
-        ivSearch=(ImageView)findViewById(R.id.home_search);
-        tvTitle=(TextView)findViewById(R.id.home_title);
         pager=(CustomViewPager)findViewById(R.id.home_viewpager);
         tabActivie=(Button)findViewById(R.id.tab_active_btn);
         tabCommunity=(Button)findViewById(R.id.tab_community_btn);
         tabConcern=(Button)findViewById(R.id.tab_concern_btn);
         tabPersonal=(Button)findViewById(R.id.tab_personal_btn);
-        ivAdd=(ImageView)findViewById(R.id.home_add);
-        relative=(RelativeLayout) findViewById(R.id.relative);
         tabActivie.setOnClickListener(this);
         tabCommunity.setOnClickListener(this);
         tabConcern.setOnClickListener(this);
         tabPersonal.setOnClickListener(this);
-        ivAdd.setOnClickListener(this);
         pager.addOnPageChangeListener(new HomeViewPagerListener());
         fragmentList = new ArrayList<Fragment>();
-        activeFragment=new ActiveFragment();
+        activeFragment=new HomePageFragment();
         communityFragment=new CommunityFragment();
-        concernFragment=new ConcernFragment();
+        concernFragment=new RecordFragment();
         personalFragment=new PersonalFragment();
         fragmentList.add(activeFragment);
         fragmentList.add(communityFragment);
@@ -238,35 +225,16 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.tab_active_btn:
                 setTabSelection(ACTIVE);
-                tvTitle.setText("活动");
-                ivAdd.setVisibility(View.GONE);
-                ivSearch.setVisibility(View.VISIBLE);
-                relative.setVisibility(View.VISIBLE);
                 break;
             case R.id.tab_community_btn:
                 setTabSelection(COMMUNITY);
-                tvTitle.setText("社区");
-                ivAdd.setVisibility(View.GONE);
-                ivSearch.setVisibility(View.GONE);
-                relative.setVisibility(View.VISIBLE);
                 break;
             case R.id.tab_concern_btn:
                 setTabSelection(CONCERN);
-                tvTitle.setText("我的关注");
-                tvAddress.setVisibility(View.GONE);
-                ivAdd.setVisibility(View.VISIBLE);
-                ivSearch.setVisibility(View.VISIBLE);
-                relative.setVisibility(View.VISIBLE);
                 break;
             case R.id.tab_personal_btn:
                 setTabSelection(PERSONAL);
-                relative.setVisibility(View.GONE);
                 break;
-            case R.id.home_add:
-                Toast.makeText(this,"点了",Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                setTabSelection(ACTIVE);
         }
     }
 }
