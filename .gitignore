@@ -12,3 +12,6 @@ gradle
 gradle.properties
 settings.gradle
 HomeSport.iml
+
+app/src/main/java/com/tiyujia/homesport/cache/
+app/src/main/java/com/tiyujia/homesport/util/AnyncParseJson.java
