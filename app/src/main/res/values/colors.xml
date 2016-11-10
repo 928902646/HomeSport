@@ -79,7 +79,7 @@
     <!--dialog-->
     <color name="text_black">#000000</color>
     <color name="text_red">#FF0000</color>
-    <color name="text_white">#FFFFFF</color>
+    <color name="text_white">#99FFFFFF</color>
     <color name="main_color">#bcbcbc</color>
     <color name="black">#000000</color>
     <color name="red_back">#F45050</color>
