@@ -21,7 +21,7 @@
     <item name="gray_holo_dark" type="color">#ff464646</item>
     <item name="gray_holo_light" type="color">#ffd0d0d0</item>
     <!--pack-->
-    <color name="background">#e5e5e5</color>
+    <color name="background">#f5f4f0</color>
     <color name="background1">#ededed</color>
     <!-- home -->
     <color name="home_view_bg_color">#f9f9f9</color>
@@ -44,6 +44,7 @@
     <color name="day_windows_bg">#fafafa</color>
     <color name="day_edit_color">#333333</color>
     <color name="day_edit_hit_color">#999999</color>
+    <color name="day_item_color">#656565</color>
 
     <!-- login -->
     <color name="login_input_text_color">#000000</color>

@@ -39,7 +39,6 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
-            android:visibility="gone"
             >
             <Button
                 android:id="@+id/btn_login"
@@ -63,11 +62,13 @@
                 />
         </RelativeLayout>
         <LinearLayout
+            android:id="@+id/ll_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:orientation="vertical"
             android:layout_gravity="center"
+            android:visibility="gone"
             >
             <com.makeramen.roundedimageview.RoundedImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -197,28 +198,19 @@
                         android:layout_gravity="center"
                         />
                 </LinearLayout>
-
-
-
             </LinearLayout>
-
         </LinearLayout>
-
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="136dp"
         android:background="@color/white"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/dip12"
-        android:paddingRight="@dimen/dip12"
         android:layout_marginTop="10dp"
         >
         <RelativeLayout
             android:id="@+id/re_active"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
+            style="@style/personal_item_layout"
             >
             <TextView
                 style="@style/personal_item_textview"
@@ -231,11 +223,13 @@
                 />
         </RelativeLayout>
         <TextView
-            style="@style/finelin"/>
+            style="@style/finelin"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            />
         <RelativeLayout
             android:id="@+id/re_dynamic"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
+            style="@style/personal_item_layout"
             >
             <TextView
                 style="@style/personal_item_textview"
@@ -248,11 +242,13 @@
                 />
         </RelativeLayout>
         <TextView
-            style="@style/finelin"/>
+            style="@style/finelin"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            />
         <RelativeLayout
             android:id="@+id/re_show"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
+            style="@style/personal_item_layout"
             >
             <TextView
                 style="@style/personal_item_textview"

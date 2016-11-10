@@ -1,5 +1,6 @@
 package com.tiyujia.homesport.common.personal.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
+import com.tiyujia.homesport.common.personal.activity.PersonalSystemSetting;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -28,9 +31,11 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
     @Bind(R.id.ll_attention) LinearLayout ll_attention;
     @Bind(R.id.ll_fans) LinearLayout ll_fans;
     @Bind(R.id.ll_gold) LinearLayout ll_gold;
+    @Bind(R.id.ll_user) LinearLayout ll_user;
     @Bind(R.id.re_active) RelativeLayout re_active;
     @Bind(R.id.re_dynamic) RelativeLayout re_dynamic;
     @Bind(R.id.re_show) RelativeLayout re_show;
+    @Bind(R.id.re_login) RelativeLayout re_login;
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,7 +43,6 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
         ButterKnife.bind(this, view);
         return view;
     }
-
     @Override
     protected void initData() {
         iv_msg.setOnClickListener(this);
@@ -52,7 +56,6 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
         re_dynamic.setOnClickListener(this);
         re_show.setOnClickListener(this);
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -60,7 +63,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
                 Toast.makeText(getActivity(),"hdksajhdksja",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.iv_setting:
-                Toast.makeText(getActivity(),"hdksajhdksja",Toast.LENGTH_SHORT).show();
+                getActivity().startActivity(new Intent(getActivity(), PersonalSystemSetting.class));
                 break;
             case R.id.me_head:
                 Toast.makeText(getActivity(),"hdksajhdksja",Toast.LENGTH_SHORT).show();
