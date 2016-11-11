@@ -1,31 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="180dp">
-    <!--<android.support.v4.view.ViewPager-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"></android.support.v4.view.ViewPager>-->
-    <ImageView
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/srlHomePage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/demo_10"
-        android:scaleType="fitXY"/>
+        >
+    <android.support.v4.widget.NestedScrollView
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nsvHomePage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.home.HotInfoFragment"
+        >
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="880dp">//????????????????????????????????????????????//
+        <com.bigkoo.convenientbanner.ConvenientBanner
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cbHomePage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:canLoop="true"
+            />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_marginTop="35dp"
-        android:paddingLeft="12.5dp"
-        android:paddingRight="12.5dp"
+        android:layout_marginLeft="12.5dp"
+        android:layout_marginRight="12.5dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="成都"
+            android:id="@+id/tvSearchCity"
+            android:gravity="center"
+            android:drawableRight="@mipmap/nav_down"
+            android:drawablePadding="12.5dp"
+            android:textSize="15sp"
             android:textColor="#ffffff"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="搜索输入活动名称、昵称"
+            android:drawableLeft="@mipmap/nav_seach"
+            android:layout_marginLeft="12.5dp"
+            android:background="@drawable/border_radius"
+            android:paddingLeft="10dp"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            android:id="@+id/tvSearchDetail"
+            />
     </LinearLayout>
 </FrameLayout>
-</LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>

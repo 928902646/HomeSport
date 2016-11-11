@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import rx.Subscription;
+import rx.subscriptions.CompositeSubscription;
+
 /**
  * 若把初始化内容放到initData实现,就是采用Lazy方式加载的Fragment
  * 若不需要Lazy加载则initData方法内留空,初始化内容放到initViews即可
@@ -17,7 +20,8 @@ import android.view.ViewGroup;
  * -注3: 针对初始就show的Fragment 为了触发onHiddenChanged事件 达到lazy效果 需要先hide再show
  */
 public abstract class BaseFragment extends Fragment {
-
+    public CompositeSubscription mCompositeSubscription;
+    public Subscription mSubscription;
     protected String fragmentTitle;             //fragment标题
     private boolean isVisible;                  //是否可见状态
     private boolean isPrepared;                 //标志位，View已经初始化完成。
@@ -27,13 +31,13 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.inflater = inflater;
+        mCompositeSubscription = new CompositeSubscription();
         isFirstLoad = true;
         View view = initView(inflater, container, savedInstanceState);
         isPrepared = true;
         lazyLoad();
         return view;
     }
-
     /** 如果是与ViewPager一起使用，调用的是setUserVisibleHint */
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
@@ -46,7 +50,16 @@ public abstract class BaseFragment extends Fragment {
             onInvisible();
         }
     }
-
+    @Override public void onDestroyView() {
+        super.onDestroyView();
+        mCompositeSubscription.unsubscribe();
+        mCompositeSubscription = null;
+        if (mSubscription != null) {
+            if (!mSubscription.isUnsubscribed()) {
+                mSubscription.unsubscribe();
+            }
+        }
+    }
     /**
      * 如果是通过FragmentTransaction的show和hide的方法来控制显示，调用的是onHiddenChanged.
      * 若是初始就show的Fragment 为了触发该事件 需要先hide再show

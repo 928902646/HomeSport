@@ -1,6 +1,7 @@
 package com.tiyujia.homesport;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.lzy.okgo.OkGo;
 
@@ -10,10 +11,15 @@ import com.lzy.okgo.OkGo;
  */
 
 public class App extends Application {
+    private static Context mContext = null;
+    public static boolean debug = true;
     @Override
     public void onCreate() {
         super.onCreate();
-
+        mContext = getApplicationContext();
         OkGo.init(this);
+    }
+    public static Context getContext() {
+        return mContext;
     }
 }

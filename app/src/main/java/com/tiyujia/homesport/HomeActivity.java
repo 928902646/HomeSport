@@ -42,9 +42,9 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     private CustomViewPager pager;
     private Button tabActivie,tabCommunity,tabConcern,tabPersonal;
     List<Fragment> fragmentList;
-    HomePageFragment activeFragment=null;
+    HomePageFragment homePageFragment=null;
     CommunityFragment communityFragment=null;
-    RecordFragment concernFragment=null;
+    RecordFragment recordFragment=null;
     PersonalFragment personalFragment=null;
     private String token,id;
 
@@ -137,13 +137,13 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         tabPersonal.setOnClickListener(this);
         pager.addOnPageChangeListener(new HomeViewPagerListener());
         fragmentList = new ArrayList<Fragment>();
-        activeFragment=new HomePageFragment();
+        homePageFragment=new HomePageFragment();
         communityFragment=new CommunityFragment();
-        concernFragment=new RecordFragment();
+        recordFragment=new RecordFragment();
         personalFragment=new PersonalFragment();
-        fragmentList.add(activeFragment);
+        fragmentList.add(homePageFragment);
         fragmentList.add(communityFragment);
-        fragmentList.add(concernFragment);
+        fragmentList.add(recordFragment);
         fragmentList.add(personalFragment);
         FragmentPagerAdapter fragmentPagerAdapter = new HomeFragmentPagerAdapter(this.getSupportFragmentManager(), fragmentList);
         pager.setAdapter(fragmentPagerAdapter);
