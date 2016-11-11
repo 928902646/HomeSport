@@ -19,6 +19,12 @@
         </activity>
         <activity android:name=".common.personal.activity.PersonalSystemSetting"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".common.personal.activity.PersonalSetInfo"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".common.personal.activity.PersonalFeedback"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".common.personal.activity.PersonalActive"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

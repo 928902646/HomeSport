@@ -76,7 +76,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/timg"
+                android:src="@mipmap/register_set_head_icon"
                 app:riv_oval="true"
                 app:riv_tile_mode="clamp"
                 android:layout_gravity="center"

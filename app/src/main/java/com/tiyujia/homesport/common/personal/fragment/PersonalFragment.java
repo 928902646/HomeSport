@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
+import com.tiyujia.homesport.common.personal.activity.PersonalActive;
 import com.tiyujia.homesport.common.personal.activity.PersonalSystemSetting;
 
 import butterknife.Bind;
@@ -39,7 +40,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.personal_fragment,null);
+        View view = inflater.inflate(R.layout.personal_home_fragment,null);
         ButterKnife.bind(this, view);
         return view;
     }
@@ -81,7 +82,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
 
                 break;
             case R.id.re_active:
-
+                getActivity().startActivity(new Intent(getActivity(), PersonalActive.class));
                 break;
             case R.id.re_dynamic:
 

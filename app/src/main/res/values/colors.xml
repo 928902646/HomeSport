@@ -6,7 +6,8 @@
 
     <!--洋李色 -->
     <color name="gainsboro">#DCDCDC</color>
-
+    <!--橙色-->
+    <color name="orange">#ff702a</color>
     <!-- dialog -->
     <color name="white40">#40FFFFFF</color>
     <color name="window_background">#EBEBEB</color>
