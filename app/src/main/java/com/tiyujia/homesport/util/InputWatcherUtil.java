@@ -32,30 +32,7 @@ public class InputWatcherUtil implements TextWatcher {
     }
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-//        if (!TextUtils.isEmpty(s)) {
-//            if (mBtnClear != null) {
-//                mBtnClear.setVisibility(View.VISIBLE);
-//                tvConfirm.setVisibility(View.VISIBLE);
-//                tvCancel.setVisibility(View.GONE);
-//                mBtnClear.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        if (mEtContainer != null) {
-//                            mEtContainer.getText().clear();
-//                            mBtnClear.setVisibility(View.GONE);
-//                            tvConfirm.setVisibility(View.GONE);
-//                            tvCancel.setVisibility(View.VISIBLE);
-//                        }
-//                    }
-//                });
-//            }
-//        } else {
-//            if (mBtnClear != null) {
-//                mBtnClear.setVisibility(View.GONE);
-//                tvConfirm.setVisibility(View.GONE);
-//                tvCancel.setVisibility(View.VISIBLE);
-//            }
-//        }
+
     }
     @Override
     public void afterTextChanged(Editable s) {

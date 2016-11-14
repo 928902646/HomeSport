@@ -24,8 +24,8 @@ import java.util.ArrayList;
 
 public class AttendFragment extends BaseFragment {
     private View view;
-    private RecyclerView recycle;
-    private SwipeRefreshLayout swipeRefresh;
+    private RecyclerView recyclerView;
+    private SwipeRefreshLayout srlRefresh;
     private ArrayList<ActiveModel> mDatas;
 
     @Override
@@ -36,15 +36,15 @@ public class AttendFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        initdata();
-        recycle= (RecyclerView)view.findViewById(R.id.recycle);
-        swipeRefresh= (SwipeRefreshLayout)view.findViewById(R.id.swipeRefresh);
+        setData();
+        recyclerView= (RecyclerView)view.findViewById(R.id.recyclerView);
+        srlRefresh= (SwipeRefreshLayout)view.findViewById(R.id.srlRefresh);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recycle.setLayoutManager(layoutManager);
-        recycle.setAdapter(new testadapter(getActivity(),mDatas));
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(new testadapter(getActivity(),mDatas));
     }
 
-    private void initdata() {
+    private void setData() {
         mDatas = new ArrayList<>();
         for (int i = 0; i < 10; i++)
         {

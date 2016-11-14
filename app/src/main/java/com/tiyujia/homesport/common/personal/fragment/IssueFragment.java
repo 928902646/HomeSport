@@ -21,8 +21,8 @@ import com.tiyujia.homesport.util.RefreshUtil;
 public class IssueFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
 
     private View view;
-    private RecyclerView recycle;
-    private SwipeRefreshLayout swipeRefresh;
+    private RecyclerView recyclerView;
+    private SwipeRefreshLayout srlRefresh;
 
     @Nullable
     @Override
@@ -33,10 +33,10 @@ public class IssueFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     }
 
     private void setview() {
-        recycle= (RecyclerView)view.findViewById(R.id.recycle);
-        swipeRefresh= (SwipeRefreshLayout)view.findViewById(R.id.swipeRefresh);
-        RefreshUtil.refresh(swipeRefresh,getActivity());
-        swipeRefresh.setOnRefreshListener(this);
+        recyclerView= (RecyclerView)view.findViewById(R.id.recyclerView);
+        srlRefresh= (SwipeRefreshLayout)view.findViewById(R.id.srlRefresh);
+        RefreshUtil.refresh(srlRefresh,getActivity());
+        srlRefresh.setOnRefreshListener(this);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class IssueFragment extends Fragment implements SwipeRefreshLayout.OnRefr
             @Override
             public void run() {
                 // 停止刷新
-                swipeRefresh.setRefreshing(false);
+                srlRefresh.setRefreshing(false);
             }
         }, 1000);
     }
