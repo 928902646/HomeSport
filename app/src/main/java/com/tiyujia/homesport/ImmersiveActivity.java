@@ -36,9 +36,10 @@ public abstract class ImmersiveActivity extends AppCompatActivity implements Vie
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		StatusBarUtil.transparencyBar(this);
 		StatusBarUtil.MIUISetStatusBarLightMode(getWindow(),true);
 		StatusBarUtil.FlymeSetStatusBarLightMode(getWindow(),true);
-		StatusBarUtil.transparencyBar(this);
+		setStatusBarTransparent();
 	}
 
 	@Override
@@ -66,6 +67,22 @@ public abstract class ImmersiveActivity extends AppCompatActivity implements Vie
 				finish();
 			default:
 				return super.onOptionsItemSelected(item);
+		}
+	}
+
+	private void setStatusBarTransparent(){
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+			//托盘重叠显示在Activity上
+			View decorView = getWindow().getDecorView();
+			int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+					|View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+			decorView.setSystemUiVisibility(uiOptions);
+			decorView.setOnSystemUiVisibilityChangeListener(this);
+			// 设置托盘透明
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+			Log.d("CP_Common","VERSION.SDK_INT =" + Build.VERSION.SDK_INT);
+		}else{
+			Log.d("CP_Common", "SDK 小于19不设置状态栏透明效果");
 		}
 	}
 

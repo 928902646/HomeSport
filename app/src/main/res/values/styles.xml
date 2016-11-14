@@ -85,5 +85,40 @@
         <item name="android:paddingRight">12dp</item>
     </style>
 
+    <style name="pack_re1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">15dp</item>
+    </style>
+    <style name="pack_liulan">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/day_edit_hit_color</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:text">109次浏览</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
 
+    <style name="pack_zan">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/day_edit_hit_color</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:drawableLeft">@mipmap/btn_good</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:drawablePadding">10dp</item>
+    </style>
+
+    <style name="pack_msg">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/day_edit_hit_color</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:paddingRight">27dp</item>
+        <item name="android:drawableLeft">@mipmap/btn_talk</item>
+        <item name="android:drawablePadding">10dp</item>
+    </style>
 </resources>

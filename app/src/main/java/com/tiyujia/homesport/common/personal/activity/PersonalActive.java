@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import com.tiyujia.homesport.ImmersiveActivity;
 import com.tiyujia.homesport.R;
 import com.tiyujia.homesport.common.personal.adapter.PersonalActiveAdapter;
+import com.tiyujia.homesport.common.personal.fragment.AttendFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,8 @@ public class PersonalActive extends ImmersiveActivity  {
         });
         mTitle.add("我参加的");
         mTitle.add("我发起的");
+        mFragment.add(new AttendFragment());
+        mFragment.add(new AttendFragment());
     }
 
 

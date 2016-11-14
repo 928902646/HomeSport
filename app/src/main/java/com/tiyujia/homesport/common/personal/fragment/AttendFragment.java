@@ -20,7 +20,7 @@ import java.util.List;
  * 邮箱:928902646@qq.com
  */
 
-public class AttendFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
+public class AttendFragment extends Fragment {
     private View view;
     private RecyclerView recycle;
     private SwipeRefreshLayout swipeRefresh;
@@ -37,17 +37,6 @@ public class AttendFragment extends Fragment implements SwipeRefreshLayout.OnRef
         recycle= (RecyclerView)view.findViewById(R.id.recycle);
         swipeRefresh= (SwipeRefreshLayout)view.findViewById(R.id.swipeRefresh);
         RefreshUtil.refresh(swipeRefresh,getActivity());
-        swipeRefresh.setOnRefreshListener(this);
     }
 
-    @Override
-    public void onRefresh() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // 停止刷新
-                swipeRefresh.setRefreshing(false);
-            }
-        }, 1000);
-    }
 }

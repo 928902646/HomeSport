@@ -12,7 +12,7 @@
             />
         <TextView
             style="@style/personal_title"
-            android:text="个人资料"
+            android:text="我的活动"
             />
     </RelativeLayout>
     <TextView
