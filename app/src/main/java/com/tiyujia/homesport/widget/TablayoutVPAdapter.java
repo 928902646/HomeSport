@@ -1,4 +1,4 @@
-package com.tiyujia.homesport.common.personal.adapter;
+package com.tiyujia.homesport.widget;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,10 +10,10 @@ import java.util.List;
 /**
  * Created by yf928 on 2016/7/18.
  */
-public class PersonalActiveAdapter extends FragmentPagerAdapter {
+public class TablayoutVPAdapter extends FragmentPagerAdapter {
     private List<Fragment> views;
     private List<String> titles;
-    public PersonalActiveAdapter(FragmentManager fm, List<Fragment> views, List<String>titles) {
+    public TablayoutVPAdapter(FragmentManager fm, List<Fragment> views, List<String>titles) {
         super(fm);
         if(views.size()==0){
             this.views=new ArrayList<>();
