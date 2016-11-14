@@ -25,9 +25,9 @@ import butterknife.Bind;
 public class PersonalActive extends ImmersiveActivity  {
     @Bind(R.id.personal_back)
     ImageView personal_back;
-    @Bind(R.id.personal_tab)
+    @Bind(R.id.tab)
     TabLayout tab;
-    @Bind(R.id.personal_vp)
+    @Bind(R.id.vp)
     ViewPager vp;
     private List<String> mTitle=new ArrayList<String>();
     private List<Fragment> mFragment = new ArrayList<Fragment>();

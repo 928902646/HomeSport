@@ -43,7 +43,7 @@ public class HomePageRecentVenueAdapter extends RecyclerView.Adapter {
     }
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-        RecentVenueHolder holder= (RecentVenueHolder) viewHolder;
+      /*  RecentVenueHolder holder= (RecentVenueHolder) viewHolder;
         HomePageRecentVenueEntity data=values.get(position);
         Picasso.with(context).load(data.getBigPicUrl()).into(holder.ivPicVenue);
         holder.tvVenueName.setText(data.getVenueName());
@@ -56,7 +56,7 @@ public class HomePageRecentVenueAdapter extends RecyclerView.Adapter {
         int degree=data.getDegreeNumber();
         handleDegrees(degree,holder.ivDegree1,holder.ivDegree2,holder.ivDegree3,holder.ivDegree4,holder.ivDegree5);
         holder.tvGoneNumber.setText(data.getNumberGone()+"人去过");
-        holder.tvTalkNumber.setText(data.getNumberTalk()+"");
+        holder.tvTalkNumber.setText(data.getNumberTalk()+"");*/
     }
 
     private void handleDegrees(int degree, ImageView ivDegree1, ImageView ivDegree2, ImageView ivDegree3, ImageView ivDegree4, ImageView ivDegree5) {

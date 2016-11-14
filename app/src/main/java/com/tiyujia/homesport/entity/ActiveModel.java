@@ -1,4 +1,4 @@
-package com.tiyujia.homesport.model;
+package com.tiyujia.homesport.entity;
 
 import java.io.Serializable;
 
@@ -15,11 +15,20 @@ public class ActiveModel implements Serializable {
     private String background;
     private String active_lable;
     private String address;
+    private String lv;
     private Long time;
     private int apply;
     private int award;
     private int msg;
     private int zan;
+
+    public String getLv() {
+        return lv;
+    }
+
+    public void setLv(String lv) {
+        this.lv = lv;
+    }
 
     public String getAvatar() {
         return avatar;
