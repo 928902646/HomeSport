@@ -4,22 +4,19 @@
         android:id="@+id/srlHomePage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
-    <android.support.v4.widget.NestedScrollView
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/nsvHomePage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".view.home.HotInfoFragment"
-        >
+    >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 <FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="880dp">//????????????????????????????????????????????//
+    android:layout_height="180dp">
         <com.bigkoo.convenientbanner.ConvenientBanner
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/cbHomePage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="180dp"
             app:canLoop="true"
             />
     <LinearLayout
@@ -55,5 +52,131 @@
             />
     </LinearLayout>
 </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="94dp"
+            android:background="#ffffff"
+            android:orientation="horizontal">
+          <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:orientation="vertical">
+              <ImageView
+                  android:layout_width="42dp"
+                  android:layout_height="42dp"
+                  android:scaleType="center"
+                  android:layout_marginTop="13dp"
+                  android:layout_gravity="center_horizontal"
+                  android:src="@mipmap/btn_teach"/>
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:textColor="#333333"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp"
+                  android:layout_gravity="center_horizontal"
+                  android:text="教程"/>
+          </LinearLayout>
+          <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:orientation="vertical">
+              <ImageView
+                  android:layout_width="42dp"
+                  android:layout_height="42dp"
+                  android:scaleType="center"
+                  android:layout_marginTop="13dp"
+                  android:layout_gravity="center_horizontal"
+                  android:src="@mipmap/btn_equip"/>
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:textColor="#333333"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp"
+                  android:layout_gravity="center_horizontal"
+                  android:text="装备控"/>
+          </LinearLayout>
+          <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:orientation="vertical">
+              <ImageView
+                  android:layout_width="42dp"
+                  android:layout_height="42dp"
+                  android:scaleType="center"
+                  android:layout_marginTop="13dp"
+                  android:layout_gravity="center_horizontal"
+                  android:src="@mipmap/btn_found"/>
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:textColor="#333333"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp"
+                  android:layout_gravity="center_horizontal"
+                  android:text="求约"/>
+          </LinearLayout>
+        </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#f5f4f0"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="#ffffff">
+               <TextView
+                   android:layout_width="2.5dp"
+                   android:layout_height="15dp"
+                   android:background="#ff702a"
+                   android:layout_gravity="center_vertical"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="附近岩场"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/btn_more2"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/ivHomePageAllVenue"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <android.support.v4.widget.NestedScrollView
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/nsvHomePage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".view.home.HotInfoFragment"
+                >
+            <android.support.v7.widget.RecyclerView
+                android:background="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/rvRecentVenue"
+                />
     </android.support.v4.widget.NestedScrollView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+        </LinearLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

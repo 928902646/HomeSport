@@ -9,7 +9,7 @@ import java.util.HashMap;
  * Created by zzqybyb19860112 on 2016/11/10.
  */
 
-public class DataManager {
+public class HomePageDataManager {
     private static HashMap<String, Service> services = new HashMap<String, Service>();
     public static <T extends Service> T getService(Class<T> clazz) {
         if (clazz == null) {
@@ -19,8 +19,8 @@ public class DataManager {
         if (service == null) {
             synchronized (clazz) {
                 if (service == null) {
-                    if (clazz.isAssignableFrom(UserServiceImpl.class)) {
-                        service = (T) new UserServiceImpl();
+                    if (clazz.isAssignableFrom(HomePageUserServiceImpl.class)) {
+                        service = (T) new HomePageUserServiceImpl();
                         services.put(clazz.getName(), service);
                         service = (T) services.get(clazz.getName());
                     }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/personal_layout">
+    <RelativeLayout
+        style="@style/personal_title_background"
+        >
+        <ImageView
+            android:id="@+id/ivVenueSurveyBack"
+            style="@style/personal_back"
+            />
+        <TextView
+            style="@style/personal_title"
+            android:text="岩场概况"
+            />
+        <ImageView
+            android:id="@+id/ivVenueSurveySearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/btn_seach2"
+            android:paddingTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+</LinearLayout>

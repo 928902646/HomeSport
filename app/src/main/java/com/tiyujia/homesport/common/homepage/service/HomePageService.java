@@ -2,7 +2,7 @@ package com.tiyujia.homesport.common.homepage.service;
 
 
 
-import com.tiyujia.homesport.common.homepage.net.Result;
+import com.tiyujia.homesport.common.homepage.net.HomePageResult;
 import com.tiyujia.homesport.common.homepage.entity.HomePageData;
 
 import rx.Observable;
@@ -12,5 +12,5 @@ import rx.Observable;
  */
 
 public interface HomePageService extends Service {
-    public Observable<Result<HomePageData>> getAllHotInfo();
+    public Observable<HomePageResult<HomePageData>> getAllHotInfo();
 }

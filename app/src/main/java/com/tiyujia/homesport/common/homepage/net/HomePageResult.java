@@ -4,7 +4,7 @@ package com.tiyujia.homesport.common.homepage.net;
  * Created by zzqybyb19860112 on 2016/11/10.
  */
 
-public class Result<T> {
+public class HomePageResult<T> {
     public int state;
     public String successmsg;
     public String phone;

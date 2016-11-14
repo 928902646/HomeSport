@@ -8,5 +8,5 @@ import java.util.List;
 
 public class HomePageData {
     //活动banner
-    public List<HomeBannerEntity> homeBannerEntities;
+    public List<HomePageBannerEntity> homeBannerEntities;
 }

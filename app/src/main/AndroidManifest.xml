@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tiyujia.homesport" >
+    package="com.tiyujia.homesport">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".App"
-        android:theme="@style/AppTheme"
-        >
-        <activity android:name=".HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".common.personal.activity.PersonalSystemSetting"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".common.personal.activity.PersonalSetInfo"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".common.personal.activity.PersonalFeedback"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".common.personal.activity.PersonalActive"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".common.personal.activity.PersonalSystemSetting"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".common.personal.activity.PersonalSetInfo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".common.personal.activity.PersonalFeedback"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".common.personal.activity.PersonalActive"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".common.homepage.activity.HomePageVenueSurveyActivity"
+            ></activity>
     </application>
 
 </manifest>

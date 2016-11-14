@@ -1,17 +1,16 @@
 package com.tiyujia.homesport.common.homepage.fragment;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Rect;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
@@ -19,14 +18,18 @@ import com.bigkoo.convenientbanner.holder.Holder;
 import com.squareup.picasso.Picasso;
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
-import com.tiyujia.homesport.common.homepage.entity.HomeBannerEntity;
+import com.tiyujia.homesport.common.homepage.activity.HomePageVenueSurveyActivity;
+import com.tiyujia.homesport.common.homepage.adapter.HomePageRecentVenueAdapter;
+import com.tiyujia.homesport.common.homepage.entity.HomePageBannerEntity;
 import com.tiyujia.homesport.common.homepage.entity.HomePageData;
-import com.tiyujia.homesport.common.homepage.net.DataManager;
-import com.tiyujia.homesport.common.homepage.net.Result;
+import com.tiyujia.homesport.common.homepage.entity.HomePageRecentVenueEntity;
+import com.tiyujia.homesport.common.homepage.net.HomePageDataManager;
+import com.tiyujia.homesport.common.homepage.net.HomePageResult;
 import com.tiyujia.homesport.common.homepage.service.HomePageService;
-import com.tiyujia.homesport.util.PicassoUtil;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import rx.Observer;
@@ -41,31 +44,45 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     HomePageService homePageService;
     @Bind(R.id.srlHomePage)      SwipeRefreshLayout swipeContainer;
     @Bind(R.id.cbHomePage)       ConvenientBanner cbHomePage;
-    private List<HomeBannerEntity> banners = new ArrayList<>();
+    @Bind(R.id.rvRecentVenue)    RecyclerView rvRecentVenue;
+    @Bind(R.id.ivHomePageAllVenue)    ImageView ivHomePageAllVenue;
+    HomePageRecentVenueAdapter adapter;
+    List<HomePageRecentVenueEntity> datas;
+    private List<HomePageBannerEntity> banners = new ArrayList<>();
+    int [] picAddress=new int[]{R.drawable.demo_05,R.drawable.demo_06,R.drawable.demo_09,R.drawable.demo_10};
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.homepage_fragment,null);
         ButterKnife.bind(this,view);
-        homePageService = DataManager.getService(HomePageService.class);
+        homePageService = HomePageDataManager.getService(HomePageService.class);
         return view;
     }
     @Override
     protected void initData() {
+        banners.add(new HomePageBannerEntity(picAddress[0]));
+        banners.add(new HomePageBannerEntity(picAddress[1]));
+        banners.add(new HomePageBannerEntity(picAddress[2]));
+        banners.add(new HomePageBannerEntity(picAddress[3]));
+        setDatas();
+        adapter=new HomePageRecentVenueAdapter(getActivity(),datas);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        rvRecentVenue.setLayoutManager(layoutManager);
+        rvRecentVenue.setAdapter(adapter);
         cbHomePage.setPages(new CBViewHolderCreator<ImageHolderView>() {
             @Override public ImageHolderView createHolder() {
                 return new ImageHolderView();
             }
         }, banners).setPageIndicator(
                         new int[] { R.drawable.dot_normal, R.drawable.dot_selected})
-                .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.ALIGN_PARENT_RIGHT);
+                .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL);
         Subscription hotInfo = homePageService.getAllHotInfo().subscribeOn(Schedulers.io())//
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Result<HomePageData>>() {
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<HomePageResult<HomePageData>>() {
                     @Override public void onCompleted() {
                     }
                     @Override public void onError(Throwable e) {
                         Toast.makeText(getActivity(), "刷新失败", Toast.LENGTH_SHORT).show();
                     }
-                    @Override public void onNext(Result<HomePageData> result) {
+                    @Override public void onNext(HomePageResult<HomePageData> result) {
                         if (result.state == 200) {
                             refresh(result.data);
                         } else {
@@ -75,7 +92,31 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 });
         mCompositeSubscription.add(hotInfo);
         swipeContainer.setOnRefreshListener(this);
+        ivHomePageAllVenue.setOnClickListener(this);
     }
+
+    private void setDatas() {
+        datas=new ArrayList<>();
+        String []types={"室内","室外"};
+        for (int i=0;i<10;i++){
+            HomePageRecentVenueEntity entity=new HomePageRecentVenueEntity();
+            entity.setBigPicUrl(R.drawable.demo_05+"");
+            entity.setVenueName("成都体育馆");
+            entity.setDegreeNumber(new Random().nextInt(5)+1);
+            entity.setNumberGone(new Random().nextInt(1200)+1);
+            entity.setNumberTalk(new Random().nextInt(3200)+1);
+            List<String> typeList=new ArrayList<>();
+            if (i%2==0){
+                typeList.add(types[0]);
+            }else {
+                typeList.add(types[1]);
+            }
+            typeList.add("抱石");
+            entity.setVenueType(typeList);
+            datas.add(entity);
+        }
+    }
+
     @Override public void onResume() {
         super.onResume();
         cbHomePage.startTurning(2500);
@@ -87,9 +128,14 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.ivHomePageAllVenue:
+                Intent intent=new Intent(getActivity(), HomePageVenueSurveyActivity.class);
+                getActivity().startActivity(intent);
+                break;
+        }
     }
-    public class ImageHolderView implements Holder<HomeBannerEntity> {
+    public class ImageHolderView implements Holder<HomePageBannerEntity> {
         private ImageView iv;
         int pos=0;
         @Override public View createView(Context context) {
@@ -97,7 +143,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
             iv.setScaleType(ImageView.ScaleType.FIT_XY);
             return iv;
         }
-        @Override public void UpdateUI(Context context, final int position, HomeBannerEntity data) {
+        @Override public void UpdateUI(Context context, final int position, HomePageBannerEntity data) {
             pos=position;
 //            Rect rect = new Rect();
 //            ((Activity)context).getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
@@ -117,7 +163,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     }
     public void updateData() {
         Subscription hotInfo = homePageService.getAllHotInfo().subscribeOn(Schedulers.io())//
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Result<HomePageData>>() {
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<HomePageResult<HomePageData>>() {
                     @Override public void onCompleted() {
                         swipeContainer.setRefreshing(false);
                     }
@@ -125,7 +171,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                         swipeContainer.setRefreshing(false);
                         Toast.makeText(getActivity(), "刷新内容失败", Toast.LENGTH_SHORT).show();
                     }
-                    @Override public void onNext(Result<HomePageData> result) {
+                    @Override public void onNext(HomePageResult<HomePageData> result) {
                         swipeContainer.setRefreshing(false);
                         if (result.state == 200) {
                             refresh(result.data);
@@ -138,13 +184,12 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     }
     private void refresh(HomePageData data) {
         //banner
-        int [] picAddress=new int[]{R.drawable.demo_05,R.drawable.demo_06,R.drawable.demo_09,R.drawable.demo_10};
         if (data.homeBannerEntities != null && data.homeBannerEntities.size() > 0) {
             banners.clear();
-            data.homeBannerEntities.add(new HomeBannerEntity(picAddress[0]));
-            data.homeBannerEntities.add(new HomeBannerEntity(picAddress[1]));
-            data.homeBannerEntities.add(new HomeBannerEntity(picAddress[2]));
-            data.homeBannerEntities.add(new HomeBannerEntity(picAddress[3]));
+            data.homeBannerEntities.add(new HomePageBannerEntity(picAddress[0]));
+            data.homeBannerEntities.add(new HomePageBannerEntity(picAddress[1]));
+            data.homeBannerEntities.add(new HomePageBannerEntity(picAddress[2]));
+            data.homeBannerEntities.add(new HomePageBannerEntity(picAddress[3]));
             banners.addAll(data.homeBannerEntities);
             cbHomePage.notifyDataSetChanged();
         }

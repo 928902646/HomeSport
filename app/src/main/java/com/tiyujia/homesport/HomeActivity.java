@@ -47,10 +47,10 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     RecordFragment recordFragment=null;
     PersonalFragment personalFragment=null;
     private String token,id;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_home);
         setview();
         if(savedInstanceState!=null){
@@ -75,18 +75,6 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         SharedPreferences share = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
         token = share.getString("Token",null);
         id = share.getString("UserId","");
-        //透明状态栏
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window window = getWindow();
-            // Translucent status bar
-            window.setFlags(
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
-        //透明状态栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        //透明导航栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
     }
     /**
      * 连按两次返回
