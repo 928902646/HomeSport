@@ -39,6 +39,7 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
+            android:visibility="gone"
             >
             <Button
                 android:id="@+id/btn_login"
@@ -68,7 +69,6 @@
             android:layout_centerHorizontal="true"
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:visibility="gone"
             >
             <com.makeramen.roundedimageview.RoundedImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -98,12 +98,15 @@
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     />
-                <ImageView
+                <TextView
                     android:id="@+id/iv_lv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/img_lv1"
-                    android:paddingLeft="10dp"
+                    android:layout_width="55dp"
+                    android:layout_height="20dp"
+                    android:text="略有小成"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:background="@drawable/user_lable"
                     />
             </LinearLayout>
             <TextView

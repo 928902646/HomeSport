@@ -8,7 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:orientation="horizontal"
-        android:paddingBottom="15dp"
         android:paddingLeft="@dimen/dip12"
         android:paddingRight="@dimen/dip12"
         >

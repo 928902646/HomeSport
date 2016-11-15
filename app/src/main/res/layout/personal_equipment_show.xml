@@ -11,11 +11,12 @@
             />
         <TextView
             style="@style/personal_title"
-            android:text="我的活动"
+            android:text="装备秀"
             />
     </RelativeLayout>
     <TextView
         style="@style/finelin"
         />
-        <include layout="@layout/tablayout"/>
+    <include layout="@layout/recycleview_layout"/>
+
 </LinearLayout>

@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         style="@style/PackTabLayout"
+        app:tabIndicatorColor="@color/orange"
         android:fillViewport="false" />
     <TextView
         style="@style/boldlin"

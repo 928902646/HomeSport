@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout style="@style/personal_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        style="@style/personal_title_background"
+        >
+
+        <TextView
+            style="@style/personal_title"
+            android:text="我的关注"
+            />
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/btn_seach2"
+            android:paddingTop="20dp"
+            android:layout_alignParentRight="true"
+            />
+
+        <ImageView
+            android:id="@+id/personal_back"
+            style="@style/personal_back"
+            />
+    </RelativeLayout>
+    <TextView
+        style="@style/finelin"
+        />
+    <include layout="@layout/recycleview_layout"/>
+</LinearLayout>

@@ -43,8 +43,8 @@
     </style>
     <style name="PackTabLayout" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="tabTextAppearance">@style/CustomTabTextAppearance</item>
-        <item name="android:textSize">35sp</item>
-        <item name="tabSelectedTextColor">@android:color/holo_red_dark</item>
+        <item name="android:textSize">15sp</item>
+        <item name="tabSelectedTextColor">@color/orange</item>
     </style>
     <style name="CustomTabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="android:textColor">@color/gray</item>
@@ -121,4 +121,12 @@
         <item name="android:drawableLeft">@mipmap/btn_talk</item>
         <item name="android:drawablePadding">10dp</item>
     </style>
+    <style name="small_avatar">
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:src">@mipmap/avatar</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
+
 </resources>

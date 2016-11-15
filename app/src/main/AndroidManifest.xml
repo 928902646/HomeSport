@@ -8,6 +8,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:anyDensity="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".HomeActivity"
@@ -28,6 +29,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".common.personal.activity.PersonalActive"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".common.personal.activity.PersonalDynamic"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".common.personal.activity.PersonalEquipmentShow"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".common.homepage.activity.HomePageVenueSurveyActivity"
             ></activity>

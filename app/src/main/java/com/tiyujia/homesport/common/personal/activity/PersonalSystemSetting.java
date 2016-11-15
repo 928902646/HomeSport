@@ -69,7 +69,7 @@ public class PersonalSystemSetting extends ImmersiveActivity implements View.OnC
 
                 break;
             case R.id.re_feedback:
-
+                startActivity(new Intent(this,PersonalFeedback.class));
                 break;
             case R.id.tv_loginout:
 

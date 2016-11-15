@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
 import com.tiyujia.homesport.common.personal.activity.PersonalActive;
+import com.tiyujia.homesport.common.personal.activity.PersonalDynamic;
+import com.tiyujia.homesport.common.personal.activity.PersonalEquipmentShow;
 import com.tiyujia.homesport.common.personal.activity.PersonalSystemSetting;
 
 import butterknife.Bind;
@@ -85,10 +87,10 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
                 getActivity().startActivity(new Intent(getActivity(), PersonalActive.class));
                 break;
             case R.id.re_dynamic:
-
+                getActivity().startActivity(new Intent(getActivity(), PersonalDynamic.class));
                 break;
             case R.id.re_show:
-
+                getActivity().startActivity(new Intent(getActivity(), PersonalEquipmentShow.class));
                 break;
         }
     }
