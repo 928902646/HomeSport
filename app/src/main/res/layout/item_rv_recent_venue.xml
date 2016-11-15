@@ -79,6 +79,7 @@
                     android:src="@mipmap/tab_start_n"
                     android:id="@+id/ivDegree1"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginRight="2dp"
                     android:scaleType="centerCrop"
                     android:layout_marginLeft="10dp"/>
                 <ImageView
@@ -87,6 +88,7 @@
                     android:src="@mipmap/tab_start_n"
                     android:scaleType="centerCrop"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginRight="2dp"
                     android:id="@+id/ivDegree2"
                     />
                 <ImageView
@@ -95,6 +97,7 @@
                     android:src="@mipmap/tab_start_n"
                     android:scaleType="centerCrop"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginRight="2dp"
                     android:id="@+id/ivDegree3"
                     />
                 <ImageView
@@ -104,6 +107,7 @@
                     android:id="@+id/ivDegree4"
                     android:scaleType="centerCrop"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginRight="2dp"
                     />
                 <ImageView
                     android:layout_width="wrap_content"
