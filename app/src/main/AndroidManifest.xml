@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tiyujia.homesport">
-
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -18,26 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".common.personal.activity.PersonalSystemSetting"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".common.personal.activity.PersonalSetInfo"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".common.personal.activity.PersonalFeedback"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".common.personal.activity.PersonalActive"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".common.personal.activity.PersonalDynamic"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".common.personal.activity.PersonalEquipmentShow"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".common.homepage.activity.HomePageVenueSurveyActivity"
-            ></activity>
+        <activity android:name=".common.personal.activity.PersonalSystemSetting"/>
+        <activity android:name=".common.personal.activity.PersonalSetInfo"/>
+        <activity android:name=".common.personal.activity.PersonalFeedback"/>
+        <activity android:name=".common.personal.activity.PersonalActive"/>
+        <activity android:name=".common.personal.activity.PersonalDynamic"/>
+        <activity android:name=".common.personal.activity.PersonalEquipmentShow" />
+        <activity android:name=".common.personal.activity.PersonalAttention"/>
+        <activity android:name=".common.personal.activity.PersonalFans"/>
+        <activity android:name=".common.personal.activity.PersonalPanyanGold"/>
+        <activity android:name=".common.homepage.activity.HomePageVenueSurveyActivity"/>
     </application>
 
 </manifest>

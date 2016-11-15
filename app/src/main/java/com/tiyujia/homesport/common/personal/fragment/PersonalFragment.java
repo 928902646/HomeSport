@@ -13,8 +13,11 @@ import android.widget.Toast;
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
 import com.tiyujia.homesport.common.personal.activity.PersonalActive;
+import com.tiyujia.homesport.common.personal.activity.PersonalAttention;
 import com.tiyujia.homesport.common.personal.activity.PersonalDynamic;
 import com.tiyujia.homesport.common.personal.activity.PersonalEquipmentShow;
+import com.tiyujia.homesport.common.personal.activity.PersonalFans;
+import com.tiyujia.homesport.common.personal.activity.PersonalPanyanGold;
 import com.tiyujia.homesport.common.personal.activity.PersonalSystemSetting;
 
 import butterknife.Bind;
@@ -28,7 +31,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
     @Bind(R.id.iv_msg) ImageView iv_msg;
     @Bind(R.id.iv_setting) ImageView iv_setting;
     @Bind(R.id.me_head) ImageView me_head;
-    @Bind(R.id.iv_lv) ImageView iv_lv;
+    @Bind(R.id.iv_lv) TextView iv_lv;
     @Bind(R.id.tv_name) TextView tv_name;
     @Bind(R.id.tv_intro) TextView tv_intro;
     @Bind(R.id.ll_attention) LinearLayout ll_attention;
@@ -71,17 +74,14 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
             case R.id.me_head:
                 Toast.makeText(getActivity(),"hdksajhdksja",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.iv_lv:
-
-                break;
             case R.id.ll_attention:
-
+                getActivity().startActivity(new Intent(getActivity(), PersonalAttention.class));
                 break;
             case R.id.ll_fans:
-
+                getActivity().startActivity(new Intent(getActivity(), PersonalFans.class));
                 break;
             case R.id.ll_gold:
-
+                getActivity().startActivity(new Intent(getActivity(), PersonalPanyanGold.class));
                 break;
             case R.id.re_active:
                 getActivity().startActivity(new Intent(getActivity(), PersonalActive.class));

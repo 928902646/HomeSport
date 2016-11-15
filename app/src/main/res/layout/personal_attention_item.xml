@@ -91,7 +91,8 @@
             android:textSize="12sp"
             android:drawableLeft="@mipmap/btn_add"
             android:background="@drawable/attention_yes"
-            android:textColor="#8bda64"
+            android:textColor="@color/green"
+            android:visibility="gone"
             />
 
     </LinearLayout>

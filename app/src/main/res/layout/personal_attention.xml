@@ -5,10 +5,9 @@
     <RelativeLayout
         style="@style/personal_title_background"
         >
-
         <TextView
+            android:id="@+id/tv_title"
             style="@style/personal_title"
-            android:text="我的关注"
             />
         <ImageView
             android:id="@+id/iv_search"
@@ -19,12 +18,12 @@
             android:paddingTop="20dp"
             android:layout_alignParentRight="true"
             />
-
         <ImageView
             android:id="@+id/personal_back"
             style="@style/personal_back"
             />
     </RelativeLayout>
+
     <TextView
         style="@style/finelin"
         />

@@ -25,9 +25,9 @@ import butterknife.ButterKnife;
 public class PersonalEquipmentShow extends ImmersiveActivity {
     @Bind(R.id.personal_back)
     ImageView personal_back;
-    @Bind(R.id.swipeRefresh)
+    @Bind(R.id.srlRefresh)
     SwipeRefreshLayout swipeRefresh;
-    @Bind(R.id.recycle)
+    @Bind(R.id.recyclerView)
     RecyclerView recycle;
     private ArrayList<ActiveModel> mDatas;
     @Override
