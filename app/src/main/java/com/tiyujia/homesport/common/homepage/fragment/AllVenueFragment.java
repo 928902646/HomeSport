@@ -1,6 +1,8 @@
 package com.tiyujia.homesport.common.homepage.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +15,8 @@ import com.tiyujia.homesport.common.homepage.activity.HomePageVenueSurveyActivit
 import com.tiyujia.homesport.common.homepage.adapter.HomePageRecentVenueAdapter;
 import com.tiyujia.homesport.common.homepage.entity.HomePageBannerEntity;
 import com.tiyujia.homesport.common.homepage.entity.HomePageRecentVenueEntity;
+import com.tiyujia.homesport.util.RefreshUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -21,13 +25,30 @@ import java.util.Random;
  * Created by zzqybyb19860112 on 2016/11/14.
  */
 
-public class AllVenueFragment extends BaseFragment {
+public class AllVenueFragment extends BaseFragment implements  SwipeRefreshLayout.OnRefreshListener{
     private View view;
     private RecyclerView recyclerView;
     private SwipeRefreshLayout srlRefresh;
     public static HomePageRecentVenueAdapter adapter;
     List<HomePageRecentVenueEntity> datas;
     int [] picAddress=new int[]{R.drawable.demo_05,R.drawable.demo_06,R.drawable.demo_09,R.drawable.demo_10};
+    public static final int HANDLE_DATA=1;
+    Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case HANDLE_DATA:
+                    adapter=new HomePageRecentVenueAdapter(getActivity(),datas);
+                    adapter.setFriends(datas);
+                    adapter.getFilter().filter(HomePageVenueSurveyActivity.getSearchText());
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+                    recyclerView.setLayoutManager(layoutManager);
+                    recyclerView.setAdapter(adapter);
+                    srlRefresh.setRefreshing(false);
+                    break;
+            }
+        }
+    };
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.recycleview_layout,null);
@@ -39,12 +60,8 @@ public class AllVenueFragment extends BaseFragment {
         setData();
         recyclerView= (RecyclerView)view.findViewById(R.id.recyclerView);
         srlRefresh= (SwipeRefreshLayout)view.findViewById(R.id.srlRefresh);
-        adapter=new HomePageRecentVenueAdapter(getActivity(),datas);
-        adapter.setFriends(datas);
-//        adapter.getFilter().filter(HomePageVenueSurveyActivity.getSearchText());
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
+        RefreshUtil.refresh(srlRefresh, getActivity());
+        srlRefresh.setOnRefreshListener(this);
     }
 
     private void setData() {
@@ -68,5 +85,17 @@ public class AllVenueFragment extends BaseFragment {
             entity.setVenueType(typeList);
             datas.add(entity);
         }
+        handler.sendEmptyMessage(HANDLE_DATA);
+    }
+
+    @Override
+    public void onRefresh() {
+        setData();
+        new Handler().postDelayed(new Runnable() {
+            @Override public void run() {
+                // 停止刷新
+                srlRefresh.setRefreshing(false);
+            }
+        }, 1000);
     }
 }

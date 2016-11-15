@@ -23,11 +23,11 @@ import butterknife.ButterKnife;
  * 邮箱:928902646@qq.com
  */
 
-public class testadapter extends RecyclerView.Adapter {
+public class TestAdapter extends RecyclerView.Adapter {
     Context context;
     List<ActiveModel> mDatas;
 
-    public testadapter(Context context, List<ActiveModel> mDatas) {
+    public TestAdapter(Context context, List<ActiveModel> mDatas) {
         if(mDatas.size()!=0){
             this.mDatas = mDatas;
         }else {
