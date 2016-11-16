@@ -51,6 +51,24 @@
             android:src="@mipmap/img_lv1"
             android:layout_marginTop="18dp"
             />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:id="@+id/tv_yes"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="关注"
+            android:textSize="12sp"
+            android:drawableLeft="@mipmap/btn_add"
+            android:background="@drawable/attention_yes"
+            android:textColor="@color/green"
+            android:visibility="gone"
+            />
     </LinearLayout>
     <TextView
         android:id="@+id/desc"

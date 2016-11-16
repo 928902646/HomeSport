@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
@@ -75,7 +76,9 @@ public abstract class BaseFragment extends Fragment {
             onInvisible();
         }
     }
-
+    public void showToast(String msg) {
+        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+    }
     protected void onVisible() {
         lazyLoad();
     }

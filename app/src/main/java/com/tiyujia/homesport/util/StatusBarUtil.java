@@ -86,9 +86,9 @@ public class StatusBarUtil {
 
     /**
      * 已知系统类型时，设置状态栏黑色字体图标。
-     * 适配4.4以上版本MIUIV、Flyme和6.0以上版本其他Android
+     * 适配4.4以上版本MIUI、Flyme和6.0以上版本其他Android
      * @param activity
-     * @param type 1:MIUUI 2:Flyme 3:android6.0
+     * @param type 1:MIUI 2:Flyme 3:android6.0
      */
     public static void StatusBarLightMode(Activity activity,int type){
         if(type==1){

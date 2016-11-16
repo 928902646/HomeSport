@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.tiyujia.homesport.ImmersiveActivity;
 import com.tiyujia.homesport.R;
 import com.tiyujia.homesport.common.personal.fragment.AttendFragment;
+import com.tiyujia.homesport.common.personal.fragment.PersonalMsgFragment;
 import com.tiyujia.homesport.widget.TablayoutVPAdapter;
 
 import java.util.ArrayList;
@@ -56,9 +57,9 @@ public class PersonalMsg extends ImmersiveActivity {
         mTitle.add("报名");
         mTitle.add("点赞");
         mTitle.add("系统消息");
-        mFragment.add(new AttendFragment());
-        mFragment.add(new AttendFragment());
-        mFragment.add(new AttendFragment());
-        mFragment.add(new AttendFragment());
+        mFragment.add(new PersonalMsgFragment());
+        mFragment.add(new PersonalMsgFragment());
+        mFragment.add(new PersonalMsgFragment());
+        mFragment.add(new PersonalMsgFragment());
     }
 }

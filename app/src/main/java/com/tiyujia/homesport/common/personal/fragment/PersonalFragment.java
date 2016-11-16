@@ -1,10 +1,13 @@
 package com.tiyujia.homesport.common.personal.fragment;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -20,6 +23,7 @@ import com.tiyujia.homesport.common.personal.activity.PersonalFans;
 import com.tiyujia.homesport.common.personal.activity.PersonalMsg;
 import com.tiyujia.homesport.common.personal.activity.PersonalPanyanGold;
 import com.tiyujia.homesport.common.personal.activity.PersonalSystemSetting;
+import com.tiyujia.homesport.util.StatusBarUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

@@ -37,9 +37,9 @@ public abstract class ImmersiveActivity extends AppCompatActivity implements Vie
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		StatusBarUtil.transparencyBar(this);
-		StatusBarUtil.MIUISetStatusBarLightMode(getWindow(),true);
+		 StatusBarUtil.MIUISetStatusBarLightMode(getWindow(),true);
 		StatusBarUtil.FlymeSetStatusBarLightMode(getWindow(),true);
-//		setStatusBarTransparent();
+		//StatusBarUtil.setStatusBarColor(this,R.color.day_edit_color);
 	}
 
 	@Override

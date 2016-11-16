@@ -15,7 +15,7 @@ import com.tiyujia.homesport.common.personal.fragment.AttendFragment;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;
-
+import butterknife.ButterKnife;
 
 
 /**
@@ -34,6 +34,7 @@ public class PersonalActive extends ImmersiveActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.personal_active);
+        ButterKnife.bind(this);
         setview();
         TablayoutVPAdapter adapter=new TablayoutVPAdapter(getSupportFragmentManager(),mFragment,mTitle);
         vp.setAdapter(adapter);

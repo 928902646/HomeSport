@@ -28,6 +28,7 @@ import com.tiyujia.homesport.common.homepage.fragment.HomePageFragment;
 import com.tiyujia.homesport.common.community.fragment.CommunityFragment;
 import com.tiyujia.homesport.common.record.fragment.RecordFragment;
 import com.tiyujia.homesport.common.personal.fragment.PersonalFragment;
+import com.tiyujia.homesport.util.StatusBarUtil;
 import com.tiyujia.homesport.widget.CustomViewPager;
 
 import java.util.ArrayList;
@@ -172,6 +173,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             setTabSelection(position);
         }
     }
+
     /**
      * 根据传入的index参数来设置选中的tab页
      */
@@ -179,17 +181,17 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         // 重置状态
         resetState();
         switch (index) {
-            case ACTIVE: {  // 活动
+            case ACTIVE: {  // 主页
                 tabActivie.setTextColor(this.getResources().getColor(R.color.home_tab_pressed_color));
                 tabActivie.setSelected(true);
                 break;
             }
-            case COMMUNITY: { // 社区
+            case COMMUNITY: { // 记录
                 tabCommunity.setTextColor(this.getResources().getColor(R.color.home_tab_pressed_color));
                 tabCommunity.setSelected(true);
                 break;
             }
-            case CONCERN: {  //关注
+            case CONCERN: {  //社区
                 tabConcern.setTextColor(this.getResources().getColor(R.color.home_tab_pressed_color));
                 tabConcern.setSelected(true);
                 break;
@@ -202,6 +204,12 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         }
         pager.setCurrentItem(index, false);
         currentTabIndex = index;
+        //判断是否需要将状态栏字体颜色改变
+        if(index==CONCERN||index==COMMUNITY){
+            StatusBarUtil.MIUISetStatusBarLightMode(getWindow(),true);
+        }else {
+            StatusBarUtil.MIUISetStatusBarLightMode(getWindow(),false);
+        }
     }
     /**
      * 重置状态

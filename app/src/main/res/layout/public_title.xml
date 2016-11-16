@@ -5,7 +5,6 @@
     >
     <RelativeLayout
         style="@style/personal_title_background"
-
         >
         <ImageView
             android:id="@+id/personal_back"
