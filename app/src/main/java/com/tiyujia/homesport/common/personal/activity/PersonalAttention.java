@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.tiyujia.homesport.ImmersiveActivity;
 import com.tiyujia.homesport.R;
 import com.tiyujia.homesport.common.personal.adapter.AttentionAdapter;
-import com.tiyujia.homesport.common.personal.adapter.dynamicadapter;
 import com.tiyujia.homesport.entity.ActiveModel;
 
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class PersonalAttention extends ImmersiveActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.personal_attention);
+        setContentView(R.layout.attention);
         ButterKnife.bind(this);
         initdata();
         personal_back.setOnClickListener(this);

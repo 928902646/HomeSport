@@ -27,5 +27,16 @@
     <TextView
         style="@style/finelin"
         />
+    <TextView
+        android:id="@+id/tv_tuijian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:text="为您推荐"
+        android:textColor="@color/day_edit_hit_color"
+        android:padding="@dimen/dip12"
+        android:textSize="@dimen/sp_12"
+        android:visibility="gone"
+        />
     <include layout="@layout/recycleview_layout"/>
 </LinearLayout>

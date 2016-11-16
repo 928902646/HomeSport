@@ -1,4 +1,4 @@
-package com.tiyujia.homesport.common.personal.adapter;
+package com.tiyujia.homesport.common.record.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -24,11 +24,11 @@ import butterknife.ButterKnife;
  * 邮箱:928902646@qq.com
  */
 
-public class DynamicAdapter extends RecyclerView.Adapter {
+public class RecommendAdapter extends RecyclerView.Adapter {
     Context context;
     List<ActiveModel> mDatas;
 
-    public DynamicAdapter(Context context, List<ActiveModel> mDatas) {
+    public RecommendAdapter(Context context, List<ActiveModel> mDatas) {
         if(mDatas.size()!=0){
             this.mDatas = mDatas;
         }else {
@@ -58,6 +58,7 @@ public class DynamicAdapter extends RecyclerView.Adapter {
         @Bind(R.id.me_head) ImageView me_head;
         @Bind(R.id.iv_lv) ImageView iv_lv;
         @Bind(R.id.tv_time) TextView tv_time;
+        @Bind(R.id.tv_yes) TextView tv_yes;
         @Bind(R.id.desc) TextView desc;
         @Bind(R.id.tv_address) TextView tv_address;
         @Bind(R.id.tv_msg) TextView tv_msg;
@@ -66,6 +67,7 @@ public class DynamicAdapter extends RecyclerView.Adapter {
         public myholder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
+            tv_yes.setVisibility(View.VISIBLE);
         }
     }
 }

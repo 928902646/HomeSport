@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.tiyujia.homesport.ImmersiveActivity;
 import com.tiyujia.homesport.R;
-import com.tiyujia.homesport.common.personal.adapter.dynamicadapter;
+import com.tiyujia.homesport.common.personal.adapter.DynamicAdapter;
 import com.tiyujia.homesport.entity.ActiveModel;
 
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ public class PersonalEquipmentShow extends ImmersiveActivity {
         initdata();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recycle.setLayoutManager(layoutManager);
-        recycle.setAdapter(new dynamicadapter(this,mDatas));
+        recycle.setAdapter(new DynamicAdapter(this,mDatas));
 
     }
 

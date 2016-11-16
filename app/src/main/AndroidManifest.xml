@@ -32,6 +32,7 @@
         <activity android:name=".common.personal.activity.PersonalPanyanGoldRecord"/>
         <activity android:name=".common.personal.activity.PersonalGoldRule"/>
         <activity android:name=".common.personal.activity.PersonalMsg"/>
+        <activity android:name=".common.record.activity.RecordAddAttention"/>
         <activity android:name=".common.homepage.activity.HomePageVenueSurveyActivity"/>
     </application>
 

@@ -38,6 +38,7 @@ public class PersonalPanyanGold extends ImmersiveActivity implements View.OnClic
         re_record.setOnClickListener(this);
         re_gold.setOnClickListener(this);
         tv_rule.setOnClickListener(this);
+        personal_back.setOnClickListener(this);
     }
 
     @Override

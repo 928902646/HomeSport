@@ -1,6 +1,7 @@
 package com.tiyujia.homesport.common.record.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
 import com.tiyujia.homesport.common.personal.fragment.AttendFragment;
+import com.tiyujia.homesport.common.record.activity.RecordAddAttention;
 import com.tiyujia.homesport.util.StatusBarUtil;
 import com.tiyujia.homesport.widget.TablayoutVPAdapter;
 
@@ -54,15 +56,15 @@ public class RecordFragment extends BaseFragment{
     private void initview() {
         mTitle.add("推荐");
         mTitle.add("关注");
-        mFragment.add(new AttendFragment());
-        mFragment.add(new AttendFragment());
+        mFragment.add(new RecommendFragment());
+        mFragment.add(new AttentionFragment());
     }
     @Override
     protected void initData() {
         iv_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getActivity(),RecordAddAttention.class));
             }
         });
     }
