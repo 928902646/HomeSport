@@ -34,7 +34,7 @@ import com.tiyujia.homesport.widget.CustomViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends FragmentActivity implements View.OnClickListener{
+public class HomeActivity extends ImmersiveActivity implements View.OnClickListener{
     private final static int ACTIVE = 0;
     private final static int COMMUNITY = 1;
     private final static int CONCERN = 2;
@@ -207,8 +207,10 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         //判断是否需要将状态栏字体颜色改变
         if(index==CONCERN||index==COMMUNITY){
             StatusBarUtil.MIUISetStatusBarLightMode(getWindow(),true);
+            StatusBarUtil.FlymeSetStatusBarLightMode(getWindow(),true);
         }else {
             StatusBarUtil.MIUISetStatusBarLightMode(getWindow(),false);
+            StatusBarUtil.FlymeSetStatusBarLightMode(getWindow(),false);
         }
     }
     /**
