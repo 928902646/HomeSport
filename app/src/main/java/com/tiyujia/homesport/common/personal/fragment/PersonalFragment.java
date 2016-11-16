@@ -17,6 +17,7 @@ import com.tiyujia.homesport.common.personal.activity.PersonalAttention;
 import com.tiyujia.homesport.common.personal.activity.PersonalDynamic;
 import com.tiyujia.homesport.common.personal.activity.PersonalEquipmentShow;
 import com.tiyujia.homesport.common.personal.activity.PersonalFans;
+import com.tiyujia.homesport.common.personal.activity.PersonalMsg;
 import com.tiyujia.homesport.common.personal.activity.PersonalPanyanGold;
 import com.tiyujia.homesport.common.personal.activity.PersonalSystemSetting;
 
@@ -66,7 +67,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.iv_msg:
-                Toast.makeText(getActivity(),"hdksajhdksja",Toast.LENGTH_SHORT).show();
+                getActivity().startActivity(new Intent(getActivity(), PersonalMsg.class));
                 break;
             case R.id.iv_setting:
                 getActivity().startActivity(new Intent(getActivity(), PersonalSystemSetting.class));

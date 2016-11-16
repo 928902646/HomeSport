@@ -31,8 +31,6 @@ public class WebActivity extends ImmersiveActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
         String url = getIntent().getStringExtra(URL);
-        //String title = getIntent().getStringExtra(TITLE);
-       // initToolBar(toolbar, true, title);
         webView=(WebView)findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setSupportZoom(true);

@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.tiyujia.homesport.ImmersiveActivity;
 import com.tiyujia.homesport.R;
@@ -26,12 +27,14 @@ public class PersonalDynamic extends ImmersiveActivity {
     @Bind(R.id.personal_back) ImageView personal_back;
     @Bind(R.id.srlRefresh)  SwipeRefreshLayout swipeRefresh;
     @Bind(R.id.recyclerView)  RecyclerView recycle;
+    @Bind(R.id.tv_title)    TextView tv_title;
     private ArrayList<ActiveModel> mDatas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.personal_dynamic);
         ButterKnife.bind(this);
+        tv_title.setText("我的动态");
         personal_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

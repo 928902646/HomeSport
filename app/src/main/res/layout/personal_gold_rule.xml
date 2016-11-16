@@ -3,8 +3,5 @@
     style="@style/personal_layout"
     >
     <include layout="@layout/public_title"/>
-    <TextView
-        style="@style/finelin"
-        />
-        <include layout="@layout/tablayout"/>
+    <include layout="@layout/activity_web"/>
 </LinearLayout>

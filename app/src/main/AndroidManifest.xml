@@ -26,6 +26,10 @@
         <activity android:name=".common.personal.activity.PersonalAttention"/>
         <activity android:name=".common.personal.activity.PersonalFans"/>
         <activity android:name=".common.personal.activity.PersonalPanyanGold"/>
+        <activity android:name=".common.personal.activity.PersonalPanyanGoldInfo"/>
+        <activity android:name=".common.personal.activity.PersonalPanyanGoldRecord"/>
+        <activity android:name=".common.personal.activity.PersonalGoldRule"/>
+        <activity android:name=".common.personal.activity.PersonalMsg"/>
         <activity android:name=".common.homepage.activity.HomePageVenueSurveyActivity"/>
     </application>
 

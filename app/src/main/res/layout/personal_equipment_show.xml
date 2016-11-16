@@ -2,18 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/personal_layout"
     >
-    <RelativeLayout
-        style="@style/personal_title_background"
-        >
-        <ImageView
-            android:id="@+id/personal_back"
-            style="@style/personal_back"
-            />
-        <TextView
-            style="@style/personal_title"
-            android:text="装备秀"
-            />
-    </RelativeLayout>
+    <include layout="@layout/public_title"/>
     <TextView
         style="@style/finelin"
         />

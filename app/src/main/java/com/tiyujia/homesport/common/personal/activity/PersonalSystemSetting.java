@@ -33,6 +33,7 @@ public class PersonalSystemSetting extends ImmersiveActivity implements View.OnC
     @Bind(R.id.re_feedback) RelativeLayout re_feedback;
     @Bind(R.id.tv_loginout) TextView tv_loginout;
     @Bind(R.id.togglebutton)ToggleButton togglebutton;
+    @Bind(R.id.tv_title)TextView tv_title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class PersonalSystemSetting extends ImmersiveActivity implements View.OnC
     }
 
     private void setview() {
+        tv_title.setText("设置");
         personal_back.setOnClickListener(this);
         re_info.setOnClickListener(this);
         re_attestation.setOnClickListener(this);

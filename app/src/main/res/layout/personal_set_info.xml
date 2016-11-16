@@ -3,21 +3,7 @@
     style="@style/personal_layout"
     android:background="@color/white"
     >
-    <RelativeLayout
-        style="@style/personal_title_background"
-        >
-        <ImageView
-            android:id="@+id/personal_back"
-            style="@style/personal_back"
-            />
-        <TextView
-            style="@style/personal_title"
-            android:text="个人资料"
-            />
-    </RelativeLayout>
-    <TextView
-        style="@style/finelin"
-        />
+    <include layout="@layout/public_title"/>
     <RelativeLayout
         android:id="@+id/re_avatar"
         android:layout_height="65dp"
