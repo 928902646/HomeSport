@@ -1,6 +1,8 @@
 package com.tiyujia.homesport.common.homepage.adapter;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,8 +16,11 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.tiyujia.homesport.R;
+import com.tiyujia.homesport.common.homepage.activity.HomePageSearchResultActivity;
 import com.tiyujia.homesport.common.homepage.activity.HomePageVenueSurveyActivity;
+import com.tiyujia.homesport.common.homepage.dao.DBVenueContext;
 import com.tiyujia.homesport.common.homepage.entity.HomePageRecentVenueEntity;
+import com.tiyujia.homesport.common.homepage.entity.HomePageSearchEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,11 +46,11 @@ public class HomePageRecentVenueAdapter extends RecyclerView.Adapter implements 
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View viewItem = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rv_recent_venue, null);
+        View viewItem = LayoutInflater.from(context).inflate(R.layout.item_rv_recent_venue, null);
         LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         viewItem.setLayoutParams(lp1);
         if (viewType==VIEW_TYPE){
-            View view=LayoutInflater.from(context).inflate(R.layout.empty_view, parent, false);
+            View view=LayoutInflater.from(context).inflate(R.layout.empty_view, null);
             LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             view.setLayoutParams(lp2);
             return new empty(view);
@@ -69,6 +74,33 @@ public class HomePageRecentVenueAdapter extends RecyclerView.Adapter implements 
             handleDegrees(degree, holder.ivDegree1, holder.ivDegree2, holder.ivDegree3, holder.ivDegree4, holder.ivDegree5);
             holder.tvGoneNumber.setText(data.getNumberGone() + "人去过");
             holder.tvTalkNumber.setText(data.getNumberTalk() + "");
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        String searchData = HomePageVenueSurveyActivity.getSearchText();
+                        if (!searchData.equals("") && searchData != null) {
+                            DBVenueContext dbVenueContext = new DBVenueContext(context);
+                            List<HomePageSearchEntity> list = dbVenueContext.query();
+                            List<String> texts = new ArrayList<String>();
+                            for (HomePageSearchEntity entity : list) {
+                                String searchText = entity.getSearchText();
+                                texts.add(searchText);
+                            }
+                            if (!texts.contains(searchData)) {
+                                ContentValues value = new ContentValues();
+                                value.put("content", HomePageVenueSurveyActivity.getSearchText());
+                                long resultID=dbVenueContext.insert(value);
+                                if (resultID!=-1){
+                                    Intent intent=new Intent(context, HomePageSearchResultActivity.class);
+                                    context.startActivity(intent);
+                                }
+                        }
+                    }else {
+                            Intent intent=new Intent(context, HomePageSearchResultActivity.class);
+                            context.startActivity(intent);
+                        }
+                }
+            });
         }
     }
     private void handleDegrees(int degree, ImageView ivDegree1, ImageView ivDegree2, ImageView ivDegree3, ImageView ivDegree4, ImageView ivDegree5) {

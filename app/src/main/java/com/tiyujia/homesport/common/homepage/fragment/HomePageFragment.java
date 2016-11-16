@@ -4,9 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +53,9 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     @Bind(R.id.ivHomePageAllVenue)    ImageView ivHomePageAllVenue;
     HomePageRecentVenueAdapter adapter;
     List<HomePageRecentVenueEntity> datas;
+    private Toolbar tb;
+    private AppBarLayout appbar;
+    private State state;
     private List<HomePageBannerEntity> banners = new ArrayList<>();
     int [] picAddress=new int[]{R.drawable.demo_05,R.drawable.demo_06,R.drawable.demo_09,R.drawable.demo_10};
     @Override
@@ -55,6 +63,29 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         View view=inflater.inflate(R.layout.homepage_fragment,null);
         ButterKnife.bind(this,view);
         homePageService = HomePageDataManager.getService(HomePageService.class);
+        tb=(Toolbar)view.findViewById(R.id.toolbar);
+        appbar=(AppBarLayout)view.findViewById(R.id.personal_appbar);
+        appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (verticalOffset == 0) {
+                    if (state != State.EXPANDED) {
+                        state = State.EXPANDED;//修改状态标记为展开
+                    }
+                } else if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange()) {
+                    if (state != State.COLLAPSED) {
+                        state = State.COLLAPSED;//修改状态标记为折叠
+                    }
+                } else {
+                    if (state != State.INTERNEDIATE) {
+                        if (state == State.COLLAPSED) {
+                        }
+                        state = State.INTERNEDIATE;//修改状态标记为中间
+                    }
+                }
+            }
+        });
+        ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
         return view;
     }
     @Override
@@ -193,5 +224,10 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
             banners.addAll(data.homeBannerEntities);
             cbHomePage.notifyDataSetChanged();
         }
+    }
+    private enum State{
+        EXPANDED,
+        COLLAPSED,
+        INTERNEDIATE
     }
 }

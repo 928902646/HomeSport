@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <android.support.v4.widget.SwipeRefreshLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/srlHomePage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-    >
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="180dp">
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/personal_appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+    <android.support.design.widget.CollapsingToolbarLayout
+        android:id="@+id/collp_toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentScrim="@color/orange"
+        app:expandedTitleMarginEnd="34dp"
+        app:expandedTitleMarginStart="28dp"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+        android:fitsSystemWindows="true"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <com.bigkoo.convenientbanner.ConvenientBanner
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/cbHomePage"
@@ -19,6 +43,86 @@
             android:layout_height="180dp"
             app:canLoop="true"
             />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="94dp"
+                android:background="#ffffff"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:scaleType="center"
+                        android:layout_marginTop="13dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@mipmap/btn_teach"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="#333333"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="教程"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:scaleType="center"
+                        android:layout_marginTop="13dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@mipmap/btn_equip"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="#333333"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="装备控"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:scaleType="center"
+                        android:layout_marginTop="13dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@mipmap/btn_found"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="#333333"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="求约"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_collapseMode="pin"
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="25dp"
@@ -51,79 +155,10 @@
             android:id="@+id/tvSearchDetail"
             />
     </LinearLayout>
-</FrameLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="94dp"
-            android:background="#ffffff"
-            android:orientation="horizontal">
-          <LinearLayout
-              android:layout_width="0dp"
-              android:layout_height="match_parent"
-              android:layout_weight="1"
-              android:orientation="vertical">
-              <ImageView
-                  android:layout_width="42dp"
-                  android:layout_height="42dp"
-                  android:scaleType="center"
-                  android:layout_marginTop="13dp"
-                  android:layout_gravity="center_horizontal"
-                  android:src="@mipmap/btn_teach"/>
-              <TextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:textSize="14sp"
-                  android:textColor="#333333"
-                  android:paddingTop="5dp"
-                  android:paddingBottom="5dp"
-                  android:layout_gravity="center_horizontal"
-                  android:text="教程"/>
-          </LinearLayout>
-          <LinearLayout
-              android:layout_width="0dp"
-              android:layout_height="match_parent"
-              android:layout_weight="1"
-              android:orientation="vertical">
-              <ImageView
-                  android:layout_width="42dp"
-                  android:layout_height="42dp"
-                  android:scaleType="center"
-                  android:layout_marginTop="13dp"
-                  android:layout_gravity="center_horizontal"
-                  android:src="@mipmap/btn_equip"/>
-              <TextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:textSize="14sp"
-                  android:textColor="#333333"
-                  android:paddingTop="5dp"
-                  android:paddingBottom="5dp"
-                  android:layout_gravity="center_horizontal"
-                  android:text="装备控"/>
-          </LinearLayout>
-          <LinearLayout
-              android:layout_width="0dp"
-              android:layout_height="match_parent"
-              android:layout_weight="1"
-              android:orientation="vertical">
-              <ImageView
-                  android:layout_width="42dp"
-                  android:layout_height="42dp"
-                  android:scaleType="center"
-                  android:layout_marginTop="13dp"
-                  android:layout_gravity="center_horizontal"
-                  android:src="@mipmap/btn_found"/>
-              <TextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:textSize="14sp"
-                  android:textColor="#333333"
-                  android:paddingTop="5dp"
-                  android:paddingBottom="5dp"
-                  android:layout_gravity="center_horizontal"
-                  android:text="求约"/>
-          </LinearLayout>
-        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+        </RelativeLayout>
+    </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
@@ -154,29 +189,20 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"/>
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:src="@mipmap/btn_more2"
-                    android:scaleType="fitCenter"
+                    android:scaleType="center"
                     android:id="@+id/ivHomePageAllVenue"
                     android:layout_gravity="center_vertical"/>
             </LinearLayout>
-            <android.support.v4.widget.NestedScrollView
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/nsvHomePage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".view.home.HotInfoFragment"
-                >
             <android.support.v7.widget.RecyclerView
                 android:background="#ffffff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/rvRecentVenue"
                 />
-    </android.support.v4.widget.NestedScrollView>
-        </LinearLayout>
+                </LinearLayout>
 </android.support.v4.widget.SwipeRefreshLayout>
+</android.support.design.widget.CoordinatorLayout>
