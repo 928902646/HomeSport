@@ -102,6 +102,7 @@ public class HomePageVenueSurveyActivity extends NewBaseActivity implements View
     private void setListeners() {
         tvVenueSurveyClose.setOnClickListener(this);
         ivVenueSurveySearch.setOnClickListener(this);
+        ivVenueSurveyBack.setOnClickListener(this);
         etVenueSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -156,6 +157,9 @@ public class HomePageVenueSurveyActivity extends NewBaseActivity implements View
                 tvClearAll.setVisibility(View.GONE);
                 tvSearchTitle.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.GONE);
+                break;
+            case R.id.ivVenueSurveyBack:
+                finish();
                 break;
         }
     }

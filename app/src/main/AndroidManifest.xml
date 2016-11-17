@@ -9,7 +9,6 @@
         android:supportsRtl="true"
         android:anyDensity="true"
         android:theme="@style/AppTheme"
-
         >
         <activity
             android:name=".HomeActivity"
@@ -34,6 +33,9 @@
         <activity android:name=".common.personal.activity.PersonalMsg"/>
         <activity android:name=".common.record.activity.RecordAddAttention"/>
         <activity android:name=".common.homepage.activity.HomePageVenueSurveyActivity"/>
+        <activity android:name=".common.homepage.activity.HomePageDateActivity"/>
+        <activity android:name=".common.homepage.activity.HomePageEquipmentActivity"/>
+        <activity android:name=".common.homepage.activity.HomePageCourseActivity"/>
     </application>
 
 </manifest>

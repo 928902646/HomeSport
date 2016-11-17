@@ -221,6 +221,7 @@
         <RelativeLayout
             android:id="@+id/re_active"
             style="@style/personal_item_layout"
+            android:background="@drawable/item_press_state"
             >
             <TextView
                 style="@style/personal_item_textview"
@@ -240,6 +241,7 @@
         <RelativeLayout
             android:id="@+id/re_dynamic"
             style="@style/personal_item_layout"
+            android:background="@drawable/item_press_state"
             >
             <TextView
                 style="@style/personal_item_textview"
@@ -259,6 +261,7 @@
         <RelativeLayout
             android:id="@+id/re_show"
             style="@style/personal_item_layout"
+            android:background="@drawable/item_press_state"
             >
             <TextView
                 style="@style/personal_item_textview"

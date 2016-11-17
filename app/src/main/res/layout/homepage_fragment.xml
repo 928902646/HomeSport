@@ -15,7 +15,6 @@
         android:id="@+id/personal_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipChildren="false"
         >
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collp_toolbar_layout"
@@ -67,6 +66,7 @@
                         android:id="@+id/tvSearchDetail"
                         />
                 </LinearLayout>
+
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
@@ -110,6 +110,8 @@
                 android:id="@+id/ivHomePageAllVenue"
                 android:layout_gravity="center_vertical"/>
         </LinearLayout>
+        <TextView
+            style="@style/finelin"/>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvRecentVenue"
             android:layout_width="match_parent"

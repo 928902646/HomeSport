@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
@@ -23,6 +24,9 @@ import com.bigkoo.convenientbanner.holder.Holder;
 import com.squareup.picasso.Picasso;
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
+import com.tiyujia.homesport.common.homepage.activity.HomePageCourseActivity;
+import com.tiyujia.homesport.common.homepage.activity.HomePageDateActivity;
+import com.tiyujia.homesport.common.homepage.activity.HomePageEquipmentActivity;
 import com.tiyujia.homesport.common.homepage.activity.HomePageVenueSurveyActivity;
 import com.tiyujia.homesport.common.homepage.adapter.HomePageRecentVenueAdapter;
 import com.tiyujia.homesport.common.homepage.entity.HomePageBannerEntity;
@@ -53,6 +57,9 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     @Bind(R.id.cbHomePage)       ConvenientBanner cbHomePage;
     @Bind(R.id.rvRecentVenue)    RecyclerView rvRecentVenue;
     @Bind(R.id.ivHomePageAllVenue)    ImageView ivHomePageAllVenue;
+    @Bind(R.id.tvCourse)  TextView tvCourse;
+    @Bind(R.id.tvEquipment)  TextView tvEquipment;
+    @Bind(R.id.tvDate)  TextView tvDate;
     HomePageRecentVenueAdapter adapter;
     List<HomePageRecentVenueEntity> datas;
     private Toolbar tb;
@@ -73,7 +80,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 if (verticalOffset == 0) {
                     if (state != State.EXPANDED) {
                         state = State.EXPANDED;//修改状态标记为展开
-                        swipeContainer.setEnabled(true);
+                        swipeContainer.setEnabled(true);//展开时才可使用下拉刷新
                     }
                     swipeContainer.setEnabled(true);
                 } else if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange()) {
@@ -130,6 +137,9 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         swipeContainer.setOnRefreshListener(this);
         RefreshUtil.refresh(swipeContainer,getActivity());
         ivHomePageAllVenue.setOnClickListener(this);
+        tvCourse.setOnClickListener(this);
+        tvEquipment.setOnClickListener(this);
+        tvDate.setOnClickListener(this);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -174,8 +184,16 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ivHomePageAllVenue:
-                Intent intent=new Intent(getActivity(), HomePageVenueSurveyActivity.class);
-                getActivity().startActivity(intent);
+                getActivity().startActivity(new Intent(getActivity(), HomePageVenueSurveyActivity.class));
+                break;
+            case R.id.tvCourse:
+                getActivity().startActivity(new Intent(getActivity(), HomePageCourseActivity.class));
+                break;
+            case R.id.tvEquipment:
+                getActivity().startActivity(new Intent(getActivity(), HomePageEquipmentActivity.class));
+                break;
+            case R.id.tvDate:
+                getActivity().startActivity(new Intent(getActivity(), HomePageDateActivity.class));
                 break;
         }
     }

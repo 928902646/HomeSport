@@ -38,7 +38,7 @@ public class PersonalEquipmentShow extends ImmersiveActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.personal_equipment_show);
         ButterKnife.bind(this);
-        tv_title.setText("我的装备秀");
+        tv_title.setText("装备秀");
         personal_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
