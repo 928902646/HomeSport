@@ -31,6 +31,8 @@ import com.tiyujia.homesport.common.homepage.entity.HomePageRecentVenueEntity;
 import com.tiyujia.homesport.common.homepage.net.HomePageDataManager;
 import com.tiyujia.homesport.common.homepage.net.HomePageResult;
 import com.tiyujia.homesport.common.homepage.service.HomePageService;
+import com.tiyujia.homesport.util.RefreshUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -71,7 +73,9 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 if (verticalOffset == 0) {
                     if (state != State.EXPANDED) {
                         state = State.EXPANDED;//修改状态标记为展开
+                        swipeContainer.setEnabled(true);
                     }
+                    swipeContainer.setEnabled(true);
                 } else if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange()) {
                     if (state != State.COLLAPSED) {
                         state = State.COLLAPSED;//修改状态标记为折叠
@@ -82,6 +86,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                         }
                         state = State.INTERNEDIATE;//修改状态标记为中间
                     }
+                    swipeContainer.setEnabled(false);
                 }
             }
         });
@@ -104,7 +109,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 return new ImageHolderView();
             }
         }, banners).setPageIndicator(
-                        new int[] { R.drawable.dot_normal, R.drawable.dot_selected})
+                new int[] { R.drawable.dot_normal, R.drawable.dot_selected})
                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL);
         Subscription hotInfo = homePageService.getAllHotInfo().subscribeOn(Schedulers.io())//
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<HomePageResult<HomePageData>>() {
@@ -123,7 +128,15 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 });
         mCompositeSubscription.add(hotInfo);
         swipeContainer.setOnRefreshListener(this);
+        RefreshUtil.refresh(swipeContainer,getActivity());
         ivHomePageAllVenue.setOnClickListener(this);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // 停止刷新
+                swipeContainer.setRefreshing(false);
+            }
+        }, 500);
     }
 
     private void setDatas() {
