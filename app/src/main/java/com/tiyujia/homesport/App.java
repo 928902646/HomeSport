@@ -2,6 +2,7 @@ package com.tiyujia.homesport;
 
 import android.app.Application;
 import android.content.Context;
+import android.view.WindowManager;
 
 import com.lzy.okgo.OkGo;
 
@@ -21,5 +22,9 @@ public class App extends Application {
     }
     public static Context getContext() {
         return mContext;
+    }
+    private WindowManager.LayoutParams wmParams=new WindowManager.LayoutParams();
+    public WindowManager.LayoutParams getMywmParams(){
+        return wmParams;
     }
 }

@@ -1,10 +1,13 @@
 package com.tiyujia.homesport;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,10 +18,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lzy.imagepicker.view.SystemBarTintManager;
 import com.tiyujia.homesport.util.StatusBarUtil;
+
+import org.w3c.dom.Text;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -139,7 +145,6 @@ public abstract class ImmersiveActivity extends AppCompatActivity implements Vie
 			dialog.dismiss();
 		}
 	}
-
 	@Override
 	public void onSystemUiVisibilityChange(int visibility) {
 

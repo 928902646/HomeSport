@@ -52,7 +52,7 @@
                         android:textSize="15sp"
                         android:textColor="#ffffff"/>
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="295dp"
                         android:layout_height="match_parent"
                         android:text="搜索输入活动名称、昵称"
                         android:drawableLeft="@mipmap/nav_seach"

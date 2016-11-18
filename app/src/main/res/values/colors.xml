@@ -16,7 +16,7 @@
     <color name="white">#FFFFFF</color>
     <color name="gray">#808080</color>
     <color name="tablayout">#f7f7f7</color>
-
+    <color name="light_pink">#fb9090</color>
     <color name="province_line_border">#C7C7C7</color>
     <!-- common -->
     <color name="common_bg">#EEEEEE</color>

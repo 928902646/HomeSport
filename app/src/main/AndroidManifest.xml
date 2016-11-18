@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tiyujia.homesport">
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -32,10 +34,12 @@
         <activity android:name=".common.personal.activity.PersonalGoldRule"/>
         <activity android:name=".common.personal.activity.PersonalMsg"/>
         <activity android:name=".common.record.activity.RecordAddAttention"/>
+        <activity android:name=".common.record.activity.RecordDynamicPublish"/>
         <activity android:name=".common.homepage.activity.HomePageVenueSurveyActivity"/>
         <activity android:name=".common.homepage.activity.HomePageDateActivity"/>
         <activity android:name=".common.homepage.activity.HomePageEquipmentActivity"/>
         <activity android:name=".common.homepage.activity.HomePageCourseActivity"/>
+        <activity android:name=".common.community.activity.CommunityActivePublishActivity"/>
     </application>
 
 </manifest>

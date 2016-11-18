@@ -136,5 +136,20 @@
         <item name="android:layout_marginTop">15dp</item>
         <item name="android:textColor">@color/orange</item>
     </style>
-
+    <style name="Dialog_Fullscreen"  parent="android:Theme.Light">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">#e6000000</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- window背景颜色 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 屏幕内容区域以外的背景是否可以设置灰度值(与backgroundDimAmount搭配使用) -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 灰度值 -->
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+    <style name="main_menu_animstyle">
+        <item name="android:windowEnterAnimation">@anim/dialog_in_anim</item>
+        <item name="android:windowExitAnimation">@anim/dialog_out_anim</item>
+    </style>
 </resources>

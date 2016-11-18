@@ -9,19 +9,18 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageView;
+
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
-import com.tiyujia.homesport.common.personal.fragment.AttendFragment;
+import com.tiyujia.homesport.common.community.activity.CommunityActivePublishActivity;
 import com.tiyujia.homesport.common.record.activity.RecordAddAttention;
-import com.tiyujia.homesport.util.StatusBarUtil;
+import com.tiyujia.homesport.common.record.activity.RecordDynamicPublish;
 import com.tiyujia.homesport.widget.TablayoutVPAdapter;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import butterknife.Bind;
+
 import butterknife.ButterKnife;
 
 
@@ -34,14 +33,19 @@ public class RecordFragment extends BaseFragment{
     private ViewPager vp;
     private List<String> mTitle=new ArrayList<String>();
     private List<Fragment> mFragment = new ArrayList<Fragment>();
+    private ImageView ivPush;
+
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View  view=inflater.inflate(R.layout.record_home_fragment,null);
         ButterKnife.bind(getActivity());
-        iv_add=(ImageView) view.findViewById(R.id.iv_add);
+        iv_add=(ImageView) view.findViewById(R.id.ivAdd);
         vp=(ViewPager) view.findViewById(R.id.vp);
         tab=(TabLayout) view.findViewById(R.id.tab);
+        ivPush=(ImageView) view.findViewById(R.id.ivPush);
         initview();
+        //创建悬浮窗口
+
         TablayoutVPAdapter adapter=new TablayoutVPAdapter(getChildFragmentManager(),mFragment,mTitle);
         vp.setAdapter(adapter);
         //tablayout和viewpager关联
@@ -52,7 +56,6 @@ public class RecordFragment extends BaseFragment{
         vp.setOffscreenPageLimit(2);
         return view;
     }
-
     private void initview() {
         mTitle.add("推荐");
         mTitle.add("关注");
@@ -65,6 +68,12 @@ public class RecordFragment extends BaseFragment{
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(),RecordAddAttention.class));
+            }
+        });
+        ivPush.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),RecordDynamicPublish.class));
             }
         });
     }
