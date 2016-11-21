@@ -1,4 +1,4 @@
-package com.tiyujia.homesport.common.record.activity;
+package com.tiyujia.homesport.common.community.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
  * 邮箱:928902646@qq.com
  */
 
-public class RecordDynamicPublish extends ImmersiveActivity implements ImagePickerAdapter.OnRecyclerViewItemClickListener{
+public class CommunityDynamicPublish extends ImmersiveActivity implements ImagePickerAdapter.OnRecyclerViewItemClickListener{
     public static final int IMAGE_ITEM_ADD = -1;
     public static final int REQUEST_CODE_SELECT = 100;
     public static final int REQUEST_CODE_PREVIEW = 101;
@@ -33,14 +33,14 @@ public class RecordDynamicPublish extends ImmersiveActivity implements ImagePick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.record_dynamic);
+        setContentView(R.layout.community_dynamic_publish);
         initImagePicker();
         initWidget();
 
     }
 
     private void initWidget() {
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.revImage);
         selImageList = new ArrayList<>();
         adapter = new ImagePickerAdapter(this, selImageList, maxImgCount);
         adapter.setOnItemClickListener(this);

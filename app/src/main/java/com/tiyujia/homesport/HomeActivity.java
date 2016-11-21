@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,7 +12,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -21,8 +19,8 @@ import android.widget.Button;
 
 import com.tiyujia.homesport.common.homepage.fragment.HomePageFragment;
 import com.tiyujia.homesport.common.community.fragment.CommunityFragment;
-import com.tiyujia.homesport.common.record.fragment.RecordFragment;
 import com.tiyujia.homesport.common.personal.fragment.PersonalFragment;
+import com.tiyujia.homesport.common.record.fragment.RecordFragment;
 import com.tiyujia.homesport.util.StatusBarUtil;
 import com.tiyujia.homesport.widget.CustomViewPager;
 
@@ -39,8 +37,8 @@ public class HomeActivity extends ImmersiveActivity implements View.OnClickListe
     private Button tabActivie,tabCommunity,tabConcern,tabPersonal;
     List<Fragment> fragmentList;
     HomePageFragment homePageFragment=null;
-    CommunityFragment communityFragment=null;
-    RecordFragment recordFragment=null;
+    RecordFragment communityFragment=null;
+    CommunityFragment recordFragment=null;
     PersonalFragment personalFragment=null;
     private String token,id;
     @Override
@@ -122,8 +120,8 @@ public class HomeActivity extends ImmersiveActivity implements View.OnClickListe
         pager.addOnPageChangeListener(new HomeViewPagerListener());
         fragmentList = new ArrayList<Fragment>();
         homePageFragment=new HomePageFragment();
-        communityFragment=new CommunityFragment();
-        recordFragment=new RecordFragment();
+        communityFragment=new RecordFragment();
+        recordFragment=new CommunityFragment();
         personalFragment=new PersonalFragment();
         fragmentList.add(homePageFragment);
         fragmentList.add(communityFragment);

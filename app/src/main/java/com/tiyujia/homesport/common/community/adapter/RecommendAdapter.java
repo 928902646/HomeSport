@@ -1,4 +1,4 @@
-package com.tiyujia.homesport.common.record.adapter;
+package com.tiyujia.homesport.common.community.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -24,11 +24,11 @@ import butterknife.ButterKnife;
  * 邮箱:928902646@qq.com
  */
 
-public class AttentionAdapter extends RecyclerView.Adapter {
+public class RecommendAdapter extends RecyclerView.Adapter {
     Context context;
     List<ActiveModel> mDatas;
 
-    public AttentionAdapter(Context context, List<ActiveModel> mDatas) {
+    public RecommendAdapter(Context context, List<ActiveModel> mDatas) {
         if(mDatas.size()!=0){
             this.mDatas = mDatas;
         }else {
@@ -67,7 +67,7 @@ public class AttentionAdapter extends RecyclerView.Adapter {
         public myholder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
-            tv_yes.setVisibility(View.GONE);
+            tv_yes.setVisibility(View.VISIBLE);
         }
     }
 }

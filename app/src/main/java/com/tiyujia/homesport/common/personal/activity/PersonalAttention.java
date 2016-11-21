@@ -25,11 +25,11 @@ import butterknife.ButterKnife;
  */
 
 public class PersonalAttention extends ImmersiveActivity implements View.OnClickListener{
-    @Bind(R.id.personal_back)ImageView personal_back;
-    @Bind(R.id.iv_search) ImageView iv_search;
+    @Bind(R.id.ivBack)ImageView personal_back;
+    @Bind(R.id.ivSearch) ImageView iv_search;
     @Bind(R.id.srlRefresh)SwipeRefreshLayout swipeRefresh;
     @Bind(R.id.recyclerView)RecyclerView recycle;
-    @Bind(R.id.tv_title)TextView tv_title;
+    @Bind(R.id.tvTitle)TextView tv_title;
     private ArrayList<ActiveModel> mDatas;
     @Nullable
     @Override
@@ -61,7 +61,7 @@ public class PersonalAttention extends ImmersiveActivity implements View.OnClick
             case R.id.personal_back:
                 finish();
                 break;
-            case R.id.iv_search:
+            case R.id.ivSearch:
 
                 break;
         }

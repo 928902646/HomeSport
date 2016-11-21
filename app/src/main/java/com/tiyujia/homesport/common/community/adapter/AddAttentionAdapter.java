@@ -1,4 +1,4 @@
-package com.tiyujia.homesport.common.record.adapter;
+package com.tiyujia.homesport.common.community.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

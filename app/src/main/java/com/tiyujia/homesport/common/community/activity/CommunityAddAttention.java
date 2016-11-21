@@ -1,4 +1,4 @@
-package com.tiyujia.homesport.common.record.activity;
+package com.tiyujia.homesport.common.community.activity;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.tiyujia.homesport.ImmersiveActivity;
 import com.tiyujia.homesport.R;
-import com.tiyujia.homesport.common.record.adapter.AddAttentionAdapter;
+import com.tiyujia.homesport.common.community.adapter.AddAttentionAdapter;
 import com.tiyujia.homesport.entity.ActiveModel;
 
 import java.util.ArrayList;
@@ -22,13 +22,13 @@ import butterknife.ButterKnife;
  * 邮箱:928902646@qq.com
  */
 
-public class RecordAddAttention extends ImmersiveActivity implements View.OnClickListener ,SwipeRefreshLayout.OnRefreshListener{
+public class CommunityAddAttention extends ImmersiveActivity implements View.OnClickListener ,SwipeRefreshLayout.OnRefreshListener{
 
-    @Bind(R.id.personal_back)ImageView personal_back;
-    @Bind(R.id.iv_search) ImageView iv_search;
+    @Bind(R.id.ivBack)ImageView personal_back;
+    @Bind(R.id.ivSearch) ImageView iv_search;
     @Bind(R.id.srlRefresh)SwipeRefreshLayout swipeRefresh;
     @Bind(R.id.recyclerView)RecyclerView recycle;
-    @Bind(R.id.tv_title)TextView tv_title;
+    @Bind(R.id.tvTitle)TextView tv_title;
     @Bind(R.id.tv_tuijian)TextView tv_tuijian;
     private ArrayList<ActiveModel> mDatas;
     @Override
@@ -60,7 +60,7 @@ public class RecordAddAttention extends ImmersiveActivity implements View.OnClic
             case R.id.personal_back:
                 finish();
                 break;
-            case R.id.iv_search:
+            case R.id.ivSearch:
 
                 break;
         }

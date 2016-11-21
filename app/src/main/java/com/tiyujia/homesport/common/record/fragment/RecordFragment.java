@@ -3,78 +3,50 @@ package com.tiyujia.homesport.common.record.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
-import com.tiyujia.homesport.common.community.activity.CommunityActivePublishActivity;
-import com.tiyujia.homesport.common.record.activity.RecordAddAttention;
-import com.tiyujia.homesport.common.record.activity.RecordDynamicPublish;
-import com.tiyujia.homesport.widget.TablayoutVPAdapter;
+import com.tiyujia.homesport.common.record.activity.RecordTopActivity;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import butterknife.Bind;
 import butterknife.ButterKnife;
-
 
 /**
  * Created by zzqybyb19860112 on 2016/10/18.
  */
-public class RecordFragment extends BaseFragment{
-    private ImageView iv_add;
-    private TabLayout tab;
-    private ViewPager vp;
-    private List<String> mTitle=new ArrayList<String>();
-    private List<Fragment> mFragment = new ArrayList<Fragment>();
-    private ImageView ivPush;
+public class RecordFragment extends BaseFragment implements View.OnClickListener {
+    private View view;
+    private TextView tvTop,tvRecord;
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View  view=inflater.inflate(R.layout.record_home_fragment,null);
-        ButterKnife.bind(getActivity());
-        iv_add=(ImageView) view.findViewById(R.id.ivAdd);
-        vp=(ViewPager) view.findViewById(R.id.vp);
-        tab=(TabLayout) view.findViewById(R.id.tab);
-        ivPush=(ImageView) view.findViewById(R.id.ivPush);
-        initview();
-        //创建悬浮窗口
-
-        TablayoutVPAdapter adapter=new TablayoutVPAdapter(getChildFragmentManager(),mFragment,mTitle);
-        vp.setAdapter(adapter);
-        //tablayout和viewpager关联
-        tab.setupWithViewPager(vp);
-        //为tablayout设置适配器
-        tab.setTabGravity(TabLayout.GRAVITY_CENTER);
-        tab.setTabMode(TabLayout.MODE_FIXED);
-        vp.setOffscreenPageLimit(2);
+        view=inflater.inflate(R.layout.record_fragment,null);
         return view;
     }
-    private void initview() {
-        mTitle.add("推荐");
-        mTitle.add("关注");
-        mFragment.add(new RecommendFragment());
-        mFragment.add(new AttentionFragment());
-    }
+
     @Override
     protected void initData() {
-        iv_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(),RecordAddAttention.class));
-            }
-        });
-        ivPush.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(),RecordDynamicPublish.class));
-            }
-        });
+        tvTop=(TextView)view.findViewById(R.id.tvTop);
+        tvRecord=(TextView)view.findViewById(R.id.tvRecord);
+        tvTop.setOnClickListener(this);
+        tvRecord.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tvTop:
+            getActivity().startActivity(new Intent(getActivity(),RecordTopActivity.class));
+                break;
+            case R.id.tvRecord:
+
+                break;
+        }
     }
 }

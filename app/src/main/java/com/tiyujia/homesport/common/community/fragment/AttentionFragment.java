@@ -1,4 +1,4 @@
-package com.tiyujia.homesport.common.record.fragment;
+package com.tiyujia.homesport.common.community.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,8 +12,7 @@ import android.view.ViewGroup;
 
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
-import com.tiyujia.homesport.common.record.adapter.AttentionAdapter;
-import com.tiyujia.homesport.common.record.adapter.RecommendAdapter;
+import com.tiyujia.homesport.common.community.adapter.AttentionAdapter;
 import com.tiyujia.homesport.entity.ActiveModel;
 import com.tiyujia.homesport.util.RefreshUtil;
 

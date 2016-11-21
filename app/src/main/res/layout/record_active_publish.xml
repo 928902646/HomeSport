@@ -121,7 +121,7 @@
     </LinearLayout>
     <TextView
         style="@style/boldlin" />
-    <include layout="@layout/community_active_publish_two"/>
+    <include layout="@layout/record_active_publish_two"/>
 
     </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
