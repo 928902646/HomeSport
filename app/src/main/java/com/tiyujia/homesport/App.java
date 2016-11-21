@@ -2,8 +2,7 @@ package com.tiyujia.homesport;
 
 import android.app.Application;
 import android.content.Context;
-import android.view.WindowManager;
-
+import com.amap.api.location.AMapLocationClient;
 import com.lzy.okgo.OkGo;
 
 /**
@@ -14,17 +13,16 @@ import com.lzy.okgo.OkGo;
 public class App extends Application {
     private static Context mContext = null;
     public static boolean debug = true;
+    public static AMapLocationClient mLocationClient = null;
     @Override
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
         OkGo.init(this);
+        //初始化定位
+        mLocationClient = new AMapLocationClient(getApplicationContext());
     }
     public static Context getContext() {
         return mContext;
-    }
-    private WindowManager.LayoutParams wmParams=new WindowManager.LayoutParams();
-    public WindowManager.LayoutParams getMywmParams(){
-        return wmParams;
     }
 }
