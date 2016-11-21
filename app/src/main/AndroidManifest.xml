@@ -51,15 +51,17 @@
         <activity android:name=".common.personal.activity.PersonalPanyanGoldRecord"/>
         <activity android:name=".common.personal.activity.PersonalGoldRule"/>
         <activity android:name=".common.personal.activity.PersonalMsg"/>
-        <activity android:name=".common.record.activity.RecordAddAttention"/>
-        <activity android:name=".common.record.activity.RecordDynamicPublish"/>
+        <activity android:name=".common.community.activity.CommunityAddAttention"/>
+        <activity android:name=".common.community.activity.CommunityDynamicPublish"/>
         <activity android:name=".common.homepage.activity.HomePageVenueSurveyActivity"/>
         <activity android:name=".common.homepage.activity.HomePageDateActivity"/>
         <activity android:name=".common.homepage.activity.HomePageEquipmentActivity"/>
         <activity android:name=".common.homepage.activity.HomePageCourseActivity"/>
         <activity android:name=".common.homepage.activity.HomePageSearchResultActivity"/>
+        <activity android:name=".common.record.activity.RecordActivePublishActivity"/>
+        <activity android:name=".common.record.activity.RecordTopActivity"/>
+        <activity android:name="com.lzy.imagepicker.ui.ImagePreviewDelActivity"/>
         <activity android:name=".common.homepage.activity.HomePageSetCityActivity"/>
-        <activity android:name=".common.community.activity.CommunityActivePublishActivity"/>
     </application>
 
 </manifest>
