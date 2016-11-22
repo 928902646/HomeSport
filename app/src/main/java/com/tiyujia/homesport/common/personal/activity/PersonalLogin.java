@@ -24,7 +24,6 @@ public class PersonalLogin extends ImmersiveActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
         setContentView(R.layout.login_activity);
         setView();
     }
