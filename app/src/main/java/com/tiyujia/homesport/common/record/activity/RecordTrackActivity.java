@@ -97,6 +97,7 @@ public class RecordTrackActivity extends ImmersiveActivity implements View.OnCli
                     public void onClick(View v)
                     {
                         showToast("分享到QQ");
+                        showDialog();
                         dialog.dismiss();
                     }
                 });
@@ -105,6 +106,7 @@ public class RecordTrackActivity extends ImmersiveActivity implements View.OnCli
                     @Override
                     public void onClick(View v) {
                         showToast("分享到QQ空间");
+                        showDialog();
                         dialog.dismiss();
                     }
                 });
@@ -113,6 +115,7 @@ public class RecordTrackActivity extends ImmersiveActivity implements View.OnCli
                     @Override
                     public void onClick(View v) {
                         showToast("分享到微信好友");
+                        showDialog();
                         dialog.dismiss();
                     }
                 });
@@ -121,6 +124,7 @@ public class RecordTrackActivity extends ImmersiveActivity implements View.OnCli
                     @Override
                     public void onClick(View v) {
                         showToast("分享到朋友圈");
+                        showDialog();
                         dialog.dismiss();
                     }
                 });
@@ -129,6 +133,7 @@ public class RecordTrackActivity extends ImmersiveActivity implements View.OnCli
                     @Override
                     public void onClick(View v) {
                         showToast("分享到新浪微博");
+                        showDialog();
                         dialog.dismiss();
                     }
                 });
@@ -168,5 +173,16 @@ public class RecordTrackActivity extends ImmersiveActivity implements View.OnCli
                 showToast("调到地图界面");
                 break;
         }
+    }
+    private void showDialog(){
+        builder = new AlertDialog.Builder(this).create();
+        builder.setView(this.getLayoutInflater().inflate(R.layout.share_succeed_dialog, null));
+        builder.show();
+        //去掉dialog四边的黑角
+        builder.getWindow().setBackgroundDrawable(new BitmapDrawable());
+        TextView tvTitle=(TextView)builder.getWindow().findViewById(R.id.tvTitle);
+        tvTitle.setText("分享成功");
+        TextView tvContent=(TextView)builder.getWindow().findViewById(R.id.tvContent);
+        tvContent.setText("感谢您的分享，祝您玩愉快");
     }
 }

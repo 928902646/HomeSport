@@ -30,6 +30,7 @@ public class PersonalSystemSetting extends ImmersiveActivity implements View.OnC
     @Bind(R.id.re_attestation) RelativeLayout re_attestation;
     @Bind(R.id.re_grade) RelativeLayout re_grade;
     @Bind(R.id.re_clean) RelativeLayout re_clean;
+    @Bind(R.id.re_about) RelativeLayout re_about;
     @Bind(R.id.re_feedback) RelativeLayout re_feedback;
     @Bind(R.id.tv_loginout) TextView tv_loginout;
     @Bind(R.id.togglebutton)ToggleButton togglebutton;
@@ -50,6 +51,7 @@ public class PersonalSystemSetting extends ImmersiveActivity implements View.OnC
         re_clean.setOnClickListener(this);
         re_feedback.setOnClickListener(this);
         tv_loginout.setOnClickListener(this);
+        re_about.setOnClickListener(this);
     }
 
     @Override
@@ -62,7 +64,7 @@ public class PersonalSystemSetting extends ImmersiveActivity implements View.OnC
                 startActivity(new Intent(this,PersonalSetInfo.class));
                 break;
             case R.id.re_attestation:
-
+                startActivity(new Intent(this,PersonalLogin.class));
                 break;
             case R.id.re_grade:
 
@@ -74,6 +76,10 @@ public class PersonalSystemSetting extends ImmersiveActivity implements View.OnC
                 startActivity(new Intent(this,PersonalFeedback.class));
                 break;
             case R.id.tv_loginout:
+
+                break;
+            case R.id.re_about:
+                startActivity(new Intent(this,PersonalAbout.class));
 
                 break;
         }

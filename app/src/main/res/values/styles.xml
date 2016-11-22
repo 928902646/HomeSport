@@ -152,12 +152,4 @@
         <item name="android:windowEnterAnimation">@anim/dialog_in_anim</item>
         <item name="android:windowExitAnimation">@anim/dialog_out_anim</item>
     </style>
-    <style name="quick_option_dialog" >
-        <item name="android:windowBackground">@color/white40</item>
-        <item name="android:windowAnimationStyle">@style/dialog_animation</item>
-    </style>
-    <style name="dialog_animation" parent="android:Animation">
-        <item name="@android:windowEnterAnimation">@anim/quick_option_dialog_enter</item>
-        <item name="@android:windowExitAnimation">@anim/quick_option_dialog_exit</item>
-    </style>
 </resources>

@@ -105,6 +105,12 @@
     <TextView
         style="@style/boldlin"
         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        >
     <RelativeLayout
         android:id="@+id/re_feedback"
         style="@style/personal_item_layout"
@@ -118,6 +124,25 @@
             android:src="@mipmap/btn_right"
             />
     </RelativeLayout>
+    <TextView
+        style="@style/finelin"
+        android:layout_marginLeft="@dimen/dip12"
+        android:layout_marginRight="@dimen/dip12"
+        />
+    <RelativeLayout
+        android:id="@+id/re_about"
+        style="@style/personal_item_layout"
+        >
+        <TextView
+            style="@style/personal_item_textview"
+            android:text="关于我们"
+            />
+        <ImageView
+            style="@style/personal_item_imageview"
+            android:src="@mipmap/btn_right"
+            />
+    </RelativeLayout>
+    </LinearLayout>
 <TextView
     android:layout_width="0dp"
     android:layout_weight="1"

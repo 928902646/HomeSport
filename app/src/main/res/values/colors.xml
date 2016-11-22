@@ -11,7 +11,16 @@
     <!--绿色-->
     <color name="green">#8bda64</color>
     <!-- dialog -->
-    <color name="white40">#FFFFFCFC</color>
+    <color name="white100">#FFFFFCFC</color>
+    <color name="white90">#E6FFFCFC</color>
+    <color name="white80">#CCFFFCFC</color>
+    <color name="white70">#B3FFFCFC</color>
+    <color name="white60">#99FFFCFC</color>
+    <color name="white50">#80FFFCFC</color>
+    <color name="white40">#66FFFCFC</color>
+    <color name="white30">#4DFFFCFC</color>
+    <color name="white20">#33FFFCFC</color>
+    <color name="white10">#1AFFFCFC</color>
     <color name="window_background">#EBEBEB</color>
     <color name="white">#FFFFFF</color>
     <color name="gray">#808080</color>

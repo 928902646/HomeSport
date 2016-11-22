@@ -32,12 +32,13 @@
     <meta-data android:name="com.amap.api.v2.apikey" android:value="84ae7306712de2d7134d569db2d8df97"/>
     <service android:name="com.amap.api.location.APSService"/>
     <!-- 地图功能配置信息 -->
-     <activity android:name=".HomeActivity" android:theme="@style/AppTheme">
+     <activity android:name=".BootLoaderActivity" android:theme="@style/AppTheme">
         <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
         </intent-filter>
     </activity>
+        <activity android:name=".HomeActivity"/>
         <activity android:name=".common.personal.activity.PersonalSystemSetting"/>
         <activity android:name=".common.personal.activity.PersonalSetInfo"/>
         <activity android:name=".common.personal.activity.PersonalFeedback"/>
@@ -46,11 +47,14 @@
         <activity android:name=".common.personal.activity.PersonalEquipmentShow" />
         <activity android:name=".common.personal.activity.PersonalAttention"/>
         <activity android:name=".common.personal.activity.PersonalFans"/>
+        <activity android:name=".common.personal.activity.PersonalAbout"/>
         <activity android:name=".common.personal.activity.PersonalPanyanGold"/>
         <activity android:name=".common.personal.activity.PersonalPanyanGoldInfo"/>
         <activity android:name=".common.personal.activity.PersonalPanyanGoldRecord"/>
         <activity android:name=".common.personal.activity.PersonalGoldRule"/>
         <activity android:name=".common.personal.activity.PersonalMsg"/>
+        <activity android:name=".common.personal.activity.PersonalLogin"/>
+        <activity android:name=".common.personal.activity.PersonalRegister"/>
         <activity android:name=".common.community.activity.CommunityAddAttention"/>
         <activity android:name=".common.community.activity.CommunityDynamicPublish"/>
         <activity android:name=".common.homepage.activity.HomePageVenueSurveyActivity"/>
