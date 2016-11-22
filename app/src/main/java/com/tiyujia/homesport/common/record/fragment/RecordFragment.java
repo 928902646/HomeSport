@@ -1,7 +1,9 @@
 package com.tiyujia.homesport.common.record.fragment;
 
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
@@ -23,6 +26,7 @@ import butterknife.ButterKnife;
 public class RecordFragment extends BaseFragment implements View.OnClickListener {
     private View view;
     private TextView tvTop,tvRecord;
+    private AlertDialog builder;
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,7 +49,21 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
             getActivity().startActivity(new Intent(getActivity(),RecordTopActivity.class));
                 break;
             case R.id.tvRecord:
-
+                builder = new AlertDialog.Builder(getActivity()).create();
+                builder.setView(getActivity().getLayoutInflater().inflate(R.layout.record_succeed_dialog, null));
+                builder.show();
+                //去掉dialog四边的黑角
+                builder.getWindow().setBackgroundDrawable(new BitmapDrawable());
+                builder.getWindow().findViewById(R.id.tvLookRecord).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    }
+                });
+                builder.getWindow().findViewById(R.id.tvShow).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    }
+                });
                 break;
         }
     }

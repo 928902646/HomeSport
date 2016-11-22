@@ -60,6 +60,7 @@
         <activity android:name=".common.homepage.activity.HomePageSearchResultActivity"/>
         <activity android:name=".common.record.activity.RecordActivePublishActivity"/>
         <activity android:name=".common.record.activity.RecordTopActivity"/>
+        <activity android:name=".common.record.activity.RecordTrackActivity"/>
         <activity android:name="com.lzy.imagepicker.ui.ImagePreviewDelActivity"/>
         <activity android:name=".common.homepage.activity.HomePageSetCityActivity"/>
     </application>

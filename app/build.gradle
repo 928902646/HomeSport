@@ -51,4 +51,5 @@ dependencies {
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v2.0.7'
     compile project(':okgo')
     compile project(':imagepicker')
+    compile files('libs/AMap_Location_V3.1.0_20161027.jar')
 }
