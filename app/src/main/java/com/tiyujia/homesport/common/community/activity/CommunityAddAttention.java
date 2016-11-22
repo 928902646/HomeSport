@@ -57,7 +57,7 @@ public class CommunityAddAttention extends ImmersiveActivity implements View.OnC
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.personal_back:
+            case R.id.ivBack:
                 finish();
                 break;
             case R.id.ivSearch:

@@ -10,12 +10,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
 import com.tiyujia.homesport.common.record.activity.RecordTopActivity;
+import com.tiyujia.homesport.common.record.activity.RecordTrackActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,6 +29,7 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
     private View view;
     private TextView tvTop,tvRecord;
     private AlertDialog builder;
+    private LinearLayout llTrack;
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,8 +41,10 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
     protected void initData() {
         tvTop=(TextView)view.findViewById(R.id.tvTop);
         tvRecord=(TextView)view.findViewById(R.id.tvRecord);
+        llTrack=(LinearLayout)view.findViewById(R.id.llTrack);
         tvTop.setOnClickListener(this);
         tvRecord.setOnClickListener(this);
+        llTrack.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +69,9 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
                     public void onClick(View v) {
                     }
                 });
+                break;
+            case R.id.llTrack:
+                getActivity().startActivity(new Intent(getActivity(),RecordTrackActivity.class));
                 break;
         }
     }
