@@ -26,6 +26,8 @@
             android:hint="输入城市名称"
             android:textColorHint="#999999"
             android:textSize="12sp"
+            android:id="@+id/etSearchCity"
+            android:textColor="#333333"
             android:drawableLeft="@mipmap/btn_seach2"
             android:drawablePadding="5dp"
             android:paddingLeft="10dp"

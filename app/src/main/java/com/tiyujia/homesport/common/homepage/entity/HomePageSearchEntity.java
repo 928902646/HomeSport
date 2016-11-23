@@ -6,6 +6,9 @@ import java.io.Serializable;
  * Created by zzqybyb19860112 on 2016/11/15.
  */
 
+/**
+ * 岩场搜索实体类
+ */
 public class HomePageSearchEntity implements Serializable {
     private int number;
     private String searchText;

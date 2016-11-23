@@ -89,16 +89,11 @@ public class HomePageRecentVenueAdapter extends RecyclerView.Adapter implements 
                             if (!texts.contains(searchData)) {
                                 ContentValues value = new ContentValues();
                                 value.put("content", HomePageVenueSurveyActivity.getSearchText());
-                                long resultID=dbVenueContext.insert(value);
-                                if (resultID!=-1){
-                                    Intent intent=new Intent(context, HomePageSearchResultActivity.class);
-                                    context.startActivity(intent);
-                                }
+                                dbVenueContext.insert(value);
                         }
-                    }else {
-                            Intent intent=new Intent(context, HomePageSearchResultActivity.class);
-                            context.startActivity(intent);
                         }
+                    Intent intent=new Intent(context, HomePageSearchResultActivity.class);
+                    context.startActivity(intent);
                 }
             });
         }

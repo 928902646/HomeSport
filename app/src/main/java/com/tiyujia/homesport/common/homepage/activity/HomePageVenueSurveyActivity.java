@@ -45,8 +45,8 @@ public class HomePageVenueSurveyActivity extends NewBaseActivity implements View
     @Bind(R.id.recyclerView)        RecyclerView recyclerView;
     @Bind(R.id.rlStartSearch)       RelativeLayout rlStartSearch;
     @Bind(R.id.llEndSearch)         LinearLayout llEndSearch;
-    @Bind(R.id.tabResult)           LinearLayout tabResult;
-    @Bind(R.id.llSearchResult)      LinearLayout llSearchResult;
+    @Bind(R.id.tabResult)           LinearLayout tabResult;//搜索结果布局
+    @Bind(R.id.llSearchResult)      LinearLayout llSearchResult;//搜索记录布局
     private static EditText etVenueSearch;
     DBVenueContext dbVenueContext;
     AllVenueFragment allVenueFragment;
@@ -60,8 +60,9 @@ public class HomePageVenueSurveyActivity extends NewBaseActivity implements View
                 case HANDLE_RECORD_DATA:
                     recordAdapter=new HomePageSearchRecordAdapter(HomePageVenueSurveyActivity.this,list);
                     if (list.size()==0){
-                        tvSearchTitle.setVisibility(View.GONE);
+                        llSearchResult.setVisibility(View.GONE);
                         tvClearAll.setVisibility(View.GONE);
+                        tabResult.setVisibility(View.VISIBLE);
                     }
                     recyclerView.setLayoutManager(new LinearLayoutManager(HomePageVenueSurveyActivity.this));
                     recyclerView.setAdapter(recordAdapter);
@@ -69,8 +70,9 @@ public class HomePageVenueSurveyActivity extends NewBaseActivity implements View
                         @Override
                         public void onItemClick(String searchText) {
                             if (allVenueFragment!=null){
+                                Log.i("tag",searchText+"-----------------");
                                 allVenueFragment.adapter.getFilter().filter(searchText);
-                                Log.i("tag",searchText);
+                                allVenueFragment.adapter.notifyDataSetChanged();
                                 tabAdapter.notifyDataSetChanged();
                                 rlStartSearch.setVisibility(View.VISIBLE);
                                 tabResult.setVisibility(View.VISIBLE);

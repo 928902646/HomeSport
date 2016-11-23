@@ -15,8 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvCommentText"
-        android:singleLine="false"
         android:text=":今天天气真好啊！"
         android:textColor="#333333"
-        android:textSize="15sp"/>
+        android:textSize="12sp"/>
 </LinearLayout>

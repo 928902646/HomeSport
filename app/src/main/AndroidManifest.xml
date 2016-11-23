@@ -53,7 +53,6 @@
         <activity android:name=".common.personal.activity.PersonalPanyanGoldRecord"/>
         <activity android:name=".common.personal.activity.PersonalGoldRule"/>
         <activity android:name=".common.personal.activity.PersonalMsg"/>
-        <activity android:name=".common.personal.activity.PersonalOtherHome"/>
         <activity android:name=".common.personal.activity.PersonalLogin"/>
         <activity android:name=".common.personal.activity.PersonalRegister"/>
         <activity android:name=".common.personal.activity.PersonalForgetRegister"/>
@@ -69,6 +68,8 @@
         <activity android:name=".common.record.activity.RecordTrackActivity"/>
         <activity android:name="com.lzy.imagepicker.ui.ImagePreviewDelActivity"/>
         <activity android:name=".common.homepage.activity.HomePageSetCityActivity"/>
+        <activity android:name=".common.homepage.activity.HomePageWholeSearchActivity"></activity>
+        <activity android:name=".common.personal.activity.PersonalOtherHome"/>
     </application>
 
 </manifest>

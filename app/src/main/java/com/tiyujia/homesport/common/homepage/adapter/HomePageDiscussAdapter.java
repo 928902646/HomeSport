@@ -1,6 +1,9 @@
 package com.tiyujia.homesport.common.homepage.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,11 +15,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.lzy.ninegrid.ImageInfo;
+import com.lzy.ninegrid.NineGridView;
+import com.lzy.ninegrid.preview.NineGridViewClickAdapter;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 import com.tiyujia.homesport.R;
 import com.tiyujia.homesport.common.homepage.entity.CallBackDetailEntity;
 import com.tiyujia.homesport.common.homepage.entity.HomePageDiscussEntity;
+import com.w4lle.library.NineGridAdapter;
+import com.w4lle.library.NineGridlayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,12 +63,12 @@ public class HomePageDiscussAdapter  extends RecyclerView.Adapter{
             holder.tvTalkContent.setText(data.getMainUserSendContent());
             List<String> picUrls=data.getMainUserSendPicUrlList();
             if (picUrls!=null&&picUrls.size()!=0){
-                holder.gvMainUserImage.setVisibility(View.VISIBLE);
-                HomePageGridViewPicAdapter gvAdapter=new HomePageGridViewPicAdapter(context,picUrls);
-                Log.i("tag","SIZE========"+picUrls.size());
-                holder.gvMainUserImage.setAdapter(gvAdapter);
+                NGLAdapter adapter = new NGLAdapter(context, picUrls);
+                holder.nglMainUserImage.setVisibility(View.VISIBLE);
+                holder.nglMainUserImage.setGap(6);
+                holder.nglMainUserImage.setAdapter(adapter);
             }else {
-                holder.gvMainUserImage.setVisibility(View.GONE);
+                holder.nglMainUserImage.setVisibility(View.GONE);
             }
             List<CallBackDetailEntity> discussList=data.getDiscussList();
             if (discussList!=null&&discussList.size()!=0){
@@ -83,7 +91,7 @@ public class HomePageDiscussAdapter  extends RecyclerView.Adapter{
         TextView tvTalkTime;
         TextView tvTalkContent;
         ImageView ivMainUserLevel;
-        GridView gvMainUserImage;
+        NineGridlayout nglMainUserImage;
         RecyclerView rvDiscussCallBack;
         public VenueDetailDiscussHolder(View itemView) {
             super(itemView);
@@ -92,8 +100,42 @@ public class HomePageDiscussAdapter  extends RecyclerView.Adapter{
             tvTalkTime= (TextView) itemView.findViewById(R.id.tvTalkTime);
             tvTalkContent= (TextView) itemView.findViewById(R.id.tvTalkContent);
             ivMainUserLevel= (ImageView) itemView.findViewById(R.id.ivMainUserLevel);
-            gvMainUserImage= (GridView) itemView.findViewById(R.id.gvMainUserImage);
+            nglMainUserImage= (NineGridlayout) itemView.findViewById(R.id.nglMainUserImage);
             rvDiscussCallBack= (RecyclerView) itemView.findViewById(R.id.rvDiscussCallBack);
         }
+    }
+   private class NGLAdapter extends NineGridAdapter {
+
+        public NGLAdapter(Context context, List list) {
+            super(context, list);
+        }
+
+        @Override
+        public int getCount() {
+            return (list == null) ? 0 : list.size();
+        }
+
+        @Override
+        public String getUrl(int position) {
+            return (String)getItem(position);
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return (list == null) ? null : list.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+       @Override
+       public View getView(int i, View view) {
+           ImageView iv = new ImageView(context);
+           iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
+           Picasso.with(context).load(getUrl(i)).into(iv);
+           return iv;
+       }
     }
 }

@@ -93,7 +93,7 @@ public class HomePageSearchResultActivity extends ImmersiveActivity {
             }else {
                 CallBackDetailEntity entityDetail=new CallBackDetailEntity();
                 entityDetail.setCallFrom(userName[i]);
-                entityDetail.setCallDetail(discussTexts[new Random().nextInt(3)+1]);
+                entityDetail.setCallDetail(discussTexts[new Random().nextInt(3)]);
                 entityList.add(entityDetail);
             }
             entity.setDiscussList(entityList);

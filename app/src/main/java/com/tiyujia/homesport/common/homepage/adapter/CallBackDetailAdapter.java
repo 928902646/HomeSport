@@ -83,8 +83,8 @@ public class CallBackDetailAdapter extends RecyclerView.Adapter {
 //            }
         }else if (viewHolder instanceof CommentViewHolder){
             final CommentViewHolder holder= (CommentViewHolder) viewHolder;
-            holder.tvCommenter.setText(entity.getCallFrom());
-            holder.tvCommentText.setText("："+entity.getCallDetail());
+            holder.tvCommenter.setText(entity.getCallFrom()+"：");
+            holder.tvCommentText.setText(entity.getCallDetail());
 //            if(onNameClickListener!=null){
 //                holder.tvCommenter.setOnClickListener(new View.OnClickListener() {
 //                    @Override

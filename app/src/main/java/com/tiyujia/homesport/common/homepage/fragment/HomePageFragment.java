@@ -10,17 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.amap.api.location.AMapLocation;
-import com.amap.api.location.AMapLocationClient;
-import com.amap.api.location.AMapLocationClientOption;
-import com.amap.api.location.AMapLocationListener;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.holder.Holder;
@@ -33,6 +28,7 @@ import com.tiyujia.homesport.common.homepage.activity.HomePageDateActivity;
 import com.tiyujia.homesport.common.homepage.activity.HomePageEquipmentActivity;
 import com.tiyujia.homesport.common.homepage.activity.HomePageSetCityActivity;
 import com.tiyujia.homesport.common.homepage.activity.HomePageVenueSurveyActivity;
+import com.tiyujia.homesport.common.homepage.activity.HomePageWholeSearchActivity;
 import com.tiyujia.homesport.common.homepage.adapter.HomePageRecentVenueAdapter;
 import com.tiyujia.homesport.common.homepage.entity.HomePageBannerEntity;
 import com.tiyujia.homesport.common.homepage.entity.HomePageData;
@@ -64,12 +60,12 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     @Bind(R.id.tvEquipment)             TextView tvEquipment;
     @Bind(R.id.tvDate)                  TextView tvDate;
     @Bind(R.id.tvSearchCity)            TextView tvSearchCity;
+    @Bind(R.id.tvSearchDetail)            TextView tvSearchDetail;
     HomePageRecentVenueAdapter adapter;
     List<HomePageRecentVenueEntity> datas;
     private Toolbar tb;
     private AppBarLayout appbar;
     private State state;
-    AMapLocationClientOption locationOption;
     String selectCity;
     private List<HomePageBannerEntity> banners = new ArrayList<>();
     int [] picAddress=new int[]{R.drawable.demo_05,R.drawable.demo_06,R.drawable.demo_09,R.drawable.demo_10};
@@ -104,64 +100,9 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
             }
         });
         ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
-        resetOption(locationOption);
-        AMapLocationClient client=App.mLocationClient;
-        AMapLocationListener locationListener = new AMapLocationListener() {
-            @Override
-            public void onLocationChanged(AMapLocation loc) {
-                if (selectCity==null) {
-                    if (null != loc) {
-                        //解析定位结果
-                        String nowCity = loc.getCity();
-                        tvSearchCity.setText(nowCity);
-                    } else {
-                        tvSearchCity.setText("失败");
-                    }
-                }else {
-                    tvSearchCity.setText(selectCity);
-                }
-            }
-        };
-        client.setLocationOption(locationOption);
-        // 启动定位
-        client.startLocation();
-        client.setLocationListener(locationListener);
+        String nowCity=App.nowCity;
+        tvSearchCity.setText(nowCity);
         return view;
-    }
-
-    public static void resetOption(AMapLocationClientOption option) {
-        option= new AMapLocationClientOption();
-        option.setNeedAddress(true);
-        /**
-         * 设置是否优先返回GPS定位结果，如果30秒内GPS没有返回定位结果则进行网络定位
-         * 注意：只有在高精度模式下的单次定位有效，其他方式无效
-         */
-        option.setGpsFirst(true);
-        // 设置是否开启缓存
-        option.setLocationCacheEnable(true);
-        //设置是否等待设备wifi刷新，如果设置为true,会自动变为单次定位，持续定位时不要使用
-        option.setOnceLocationLatest(true);
-        //设置是否使用传感器
-        option.setSensorEnable(true);
-        String strInterval = "300";
-        if (!TextUtils.isEmpty(strInterval)) {
-            try{
-                // 设置发送定位请求的时间间隔,最小值为1000，如果小于1000，按照1000算
-                option.setInterval(Long.valueOf(strInterval));
-            }catch(Throwable e){
-                e.printStackTrace();
-            }
-        }
-
-        String strTimeout = "30000";
-        if(!TextUtils.isEmpty(strTimeout)){
-            try{
-                // 设置网络请求超时时间
-                option.setHttpTimeOut(Long.valueOf(strTimeout));
-            }catch(Throwable e){
-                e.printStackTrace();
-            }
-        }
     }
     @Override
     protected void initData() {
@@ -204,6 +145,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         tvEquipment.setOnClickListener(this);
         tvDate.setOnClickListener(this);
         tvSearchCity.setOnClickListener(this);
+        tvSearchDetail.setOnClickListener(this);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -258,6 +200,9 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 break;
             case R.id.tvDate:
                 getActivity().startActivity(new Intent(getActivity(), HomePageDateActivity.class));
+                break;
+            case R.id.tvSearchDetail:
+                getActivity().startActivity(new Intent(getActivity(), HomePageWholeSearchActivity.class));
                 break;
             case R.id.tvSearchCity:
                 Intent intent=new Intent(getActivity(), HomePageSetCityActivity.class);
