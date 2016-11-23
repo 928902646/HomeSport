@@ -80,7 +80,7 @@ public class HomePageSetCityActivity extends AppCompatActivity {
         mQuicLocationBar.setOnTouchLitterChangedListener(new LetterListViewListener());
         overlay=(TextView)findViewById(R.id.city_dialog);
         tvNowCity=(TextView)findViewById(R.id.tvNowCity);
-        mCityLit=(ListView)findViewById(R.id.city_list);
+        mCityLit=(ListView) findViewById(R.id.city_list);
         mQuicLocationBar.setTextDialog(overlay);
         AMapLocationClient client= App.mLocationClient;
         AMapLocationClientOption option=new AMapLocationClientOption();
@@ -103,6 +103,7 @@ public class HomePageSetCityActivity extends AppCompatActivity {
         client.setLocationListener(locationListener);
         initList();
     }
+
     private void initList() {
         mCityNames=getCityNames();
         HomePageCityAdapter adapter=new HomePageCityAdapter(this,mCityNames);
