@@ -24,6 +24,7 @@
     <TextView
         style="@style/finelin" />
     <EditText
+        android:id="@+id/etPhone"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:drawableLeft="@mipmap/btn_phone"
@@ -46,6 +47,7 @@
         android:background="@color/background"
         />
     <EditText
+        android:id="@+id/etPassword"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:drawableLeft="@mipmap/btn_lock"
@@ -57,6 +59,7 @@
         android:layout_marginTop="30dp"
         android:background="@null"
         android:paddingBottom="5dp"
+        android:inputType="textPassword"
         android:textCursorDrawable="@null"
         android:textColor="@color/day_edit_color"
         />
@@ -67,6 +70,7 @@
         android:background="@color/background"
         />
     <TextView
+        android:id="@+id/tvLogin"
         android:layout_width="280dp"
         android:layout_height="49dp"
         android:layout_marginTop="43dp"

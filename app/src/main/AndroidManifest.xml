@@ -53,6 +53,7 @@
         <activity android:name=".common.personal.activity.PersonalPanyanGoldRecord"/>
         <activity android:name=".common.personal.activity.PersonalGoldRule"/>
         <activity android:name=".common.personal.activity.PersonalMsg"/>
+        <activity android:name=".common.personal.activity.PersonalOtherHome"/>
         <activity android:name=".common.personal.activity.PersonalLogin"/>
         <activity android:name=".common.personal.activity.PersonalRegister"/>
         <activity android:name=".common.personal.activity.PersonalForgetRegister"/>

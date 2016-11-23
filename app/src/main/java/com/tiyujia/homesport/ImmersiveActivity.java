@@ -30,9 +30,12 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import butterknife.ButterKnife;
+import rx.subscriptions.CompositeSubscription;
 
 public abstract class ImmersiveActivity extends AppCompatActivity implements View.OnSystemUiVisibilityChangeListener {
 
+
+	public CompositeSubscription mCompositeSubscription;
 
 	@SuppressWarnings("unchecked")
 	public <T extends View> T findView(int id) {
@@ -42,6 +45,7 @@ public abstract class ImmersiveActivity extends AppCompatActivity implements Vie
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		mCompositeSubscription = new CompositeSubscription();
 		StatusBarUtil.MIUISetStatusBarLightMode(getWindow(),true);
 		setStatusBarTransparent();
 	}

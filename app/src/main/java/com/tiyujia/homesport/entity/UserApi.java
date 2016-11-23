@@ -1,7 +1,4 @@
-package com.tiyujia.homesport.common.homepage.service;
-
-import com.tiyujia.homesport.common.homepage.net.HomePageResult;
-import com.tiyujia.homesport.entity.UserData;
+package com.tiyujia.homesport.entity;
 
 import java.util.HashMap;
 import okhttp3.RequestBody;
@@ -15,33 +12,32 @@ import rx.Observable;
  * Created by zzqybyb19860112 on 2016/11/10.
  */
 
-public interface HomePageUserApi {
+public interface UserApi {
     /**
      * 获取验证码
      */
-    @POST("/v1/sendRegisterCode") @FormUrlEncoded
-    Observable<HomePageResult> getVerifyCode(
+    @POST("/v2/sendCode") @FormUrlEncoded Observable<Result> getVerifyCode(
             @FieldMap HashMap<String, String> params);
     /**
      * 验证手机号
      */
-    @POST("/v1/account/validate/code") @FormUrlEncoded Observable<HomePageResult<HomePageVerifyCode>> verifyPhone(
+    @POST("/v2/account/validate/code") @FormUrlEncoded Observable<Result<VerifyCode>> verifyPhone(
             @FieldMap HashMap<String, String> params);
     /**
      * 注册账号
      */
     @Multipart
-    @POST("/v1/account/register") Observable<HomePageResult> register(
+    @POST("/v2/account/register2") Observable<Result> register(
             @PartMap HashMap<String, RequestBody> params);
     /**
      * 忘记密码
      */
-    @POST("/v1/account/retrievepwd") @FormUrlEncoded Observable<HomePageResult> retrievePassword(
+    @POST("/v2/account/retrieve_secret") @FormUrlEncoded Observable<Result> retrievePassword(
             @FieldMap HashMap<String, String> params);
     /**
      * 登录
      */
-    @POST("/v1/account/login") @FormUrlEncoded Observable<HomePageResult<UserData>> login(
+    @POST("/v2/account/log_in") @FormUrlEncoded Observable<Result<UserData>> login(
             @FieldMap HashMap<String, String> params);
 }
 

@@ -1,7 +1,8 @@
 package com.tiyujia.homesport.common.homepage.net;
 
 import com.tiyujia.homesport.common.homepage.service.HomePageServiceImpl;
-import com.tiyujia.homesport.common.homepage.service.Service;
+import com.tiyujia.homesport.entity.Service;
+import com.tiyujia.homesport.entity.UserServiceImpl;
 
 import java.util.HashMap;
 
@@ -19,8 +20,8 @@ public class HomePageDataManager {
         if (service == null) {
             synchronized (clazz) {
                 if (service == null) {
-                    if (clazz.isAssignableFrom(HomePageUserServiceImpl.class)) {
-                        service = (T) new HomePageUserServiceImpl();
+                    if (clazz.isAssignableFrom(UserServiceImpl.class)) {
+                        service = (T) new UserServiceImpl();
                         services.put(clazz.getName(), service);
                         service = (T) services.get(clazz.getName());
                     }

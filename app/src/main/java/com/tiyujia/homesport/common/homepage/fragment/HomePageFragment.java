@@ -38,7 +38,7 @@ import com.tiyujia.homesport.common.homepage.entity.HomePageBannerEntity;
 import com.tiyujia.homesport.common.homepage.entity.HomePageData;
 import com.tiyujia.homesport.common.homepage.entity.HomePageRecentVenueEntity;
 import com.tiyujia.homesport.common.homepage.net.HomePageDataManager;
-import com.tiyujia.homesport.common.homepage.net.HomePageResult;
+import com.tiyujia.homesport.entity.Result;
 import com.tiyujia.homesport.common.homepage.service.HomePageService;
 import com.tiyujia.homesport.util.RefreshUtil;
 import java.util.ArrayList;
@@ -182,13 +182,13 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 new int[] { R.drawable.dot_normal, R.drawable.dot_selected})
                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL);
         Subscription hotInfo = homePageService.getAllHotInfo().subscribeOn(Schedulers.io())//
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<HomePageResult<HomePageData>>() {
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Result<HomePageData>>() {
                     @Override public void onCompleted() {
                     }
                     @Override public void onError(Throwable e) {
                         Toast.makeText(getActivity(), "刷新失败", Toast.LENGTH_SHORT).show();
                     }
-                    @Override public void onNext(HomePageResult<HomePageData> result) {
+                    @Override public void onNext(Result<HomePageData> result) {
                         if (result.state == 200) {
                             refresh(result.data);
                         } else {
@@ -303,7 +303,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     }
     public void updateData() {
         Subscription hotInfo = homePageService.getAllHotInfo().subscribeOn(Schedulers.io())//
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<HomePageResult<HomePageData>>() {
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Result<HomePageData>>() {
                     @Override public void onCompleted() {
                         swipeContainer.setRefreshing(false);
                     }
@@ -311,7 +311,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                         swipeContainer.setRefreshing(false);
                         Toast.makeText(getActivity(), "刷新内容失败", Toast.LENGTH_SHORT).show();
                     }
-                    @Override public void onNext(HomePageResult<HomePageData> result) {
+                    @Override public void onNext(Result<HomePageData> result) {
                         swipeContainer.setRefreshing(false);
                         if (result.state == 200) {
                             refresh(result.data);

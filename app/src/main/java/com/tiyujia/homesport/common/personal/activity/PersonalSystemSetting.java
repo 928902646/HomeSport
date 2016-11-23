@@ -64,7 +64,6 @@ public class PersonalSystemSetting extends ImmersiveActivity implements View.OnC
                 startActivity(new Intent(this,PersonalSetInfo.class));
                 break;
             case R.id.re_attestation:
-                startActivity(new Intent(this,PersonalLogin.class));
                 break;
             case R.id.re_grade:
 

@@ -1,13 +1,17 @@
 package com.tiyujia.homesport.common.personal.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -20,6 +24,7 @@ import com.tiyujia.homesport.common.personal.activity.PersonalAttention;
 import com.tiyujia.homesport.common.personal.activity.PersonalDynamic;
 import com.tiyujia.homesport.common.personal.activity.PersonalEquipmentShow;
 import com.tiyujia.homesport.common.personal.activity.PersonalFans;
+import com.tiyujia.homesport.common.personal.activity.PersonalLogin;
 import com.tiyujia.homesport.common.personal.activity.PersonalMsg;
 import com.tiyujia.homesport.common.personal.activity.PersonalPanyanGold;
 import com.tiyujia.homesport.common.personal.activity.PersonalSystemSetting;
@@ -47,15 +52,31 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
     @Bind(R.id.re_dynamic) RelativeLayout re_dynamic;
     @Bind(R.id.re_show) RelativeLayout re_show;
     @Bind(R.id.re_login) RelativeLayout re_login;
+    @Bind(R.id.btn_login)    Button btn_login;
+    private SharedPreferences mShare;
+    private String mToken,mUserId;
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.personal_home_fragment,null);
         ButterKnife.bind(this, view);
+        getInfo();
         return view;
     }
+
+    private void getInfo() {
+        mShare= getActivity().getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        mToken=mShare.getString("Token","");
+        if(TextUtils.isEmpty(mToken)){
+            ll_user.setVisibility(View.GONE);
+        }else {
+            re_login.setVisibility(View.GONE);
+        }
+    }
+
     @Override
     protected void initData() {
+
         iv_msg.setOnClickListener(this);
         iv_setting.setOnClickListener(this);
         me_head.setOnClickListener(this);
@@ -66,6 +87,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
         re_active.setOnClickListener(this);
         re_dynamic.setOnClickListener(this);
         re_show.setOnClickListener(this);
+        btn_login.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {
@@ -96,6 +118,9 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
                 break;
             case R.id.re_show:
                 getActivity().startActivity(new Intent(getActivity(), PersonalEquipmentShow.class));
+                break;
+            case R.id.btn_login:
+                getActivity().startActivity(new Intent(getActivity(), PersonalLogin.class));
                 break;
         }
     }

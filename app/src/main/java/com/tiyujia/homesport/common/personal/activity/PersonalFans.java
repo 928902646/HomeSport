@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
  */
 
 public class PersonalFans extends ImmersiveActivity implements View.OnClickListener{
-    @Bind(R.id.personal_back)ImageView personal_back;
+    @Bind(R.id.ivBack)ImageView ivBack;
     @Bind(R.id.ivSearch) ImageView iv_search;
     @Bind(R.id.srlRefresh)SwipeRefreshLayout swipeRefresh;
     @Bind(R.id.recyclerView)RecyclerView recycle;
@@ -35,9 +35,8 @@ public class PersonalFans extends ImmersiveActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.attention);
-        ButterKnife.bind(this);
         initData();
-        personal_back.setOnClickListener(this);
+        ivBack.setOnClickListener(this);
         iv_search.setOnClickListener(this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recycle.setLayoutManager(layoutManager);
@@ -57,7 +56,7 @@ public class PersonalFans extends ImmersiveActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.personal_back:
+            case R.id.ivBack:
                 finish();
                 break;
             case R.id.ivSearch:

@@ -1,7 +1,7 @@
 package com.tiyujia.homesport.common.homepage.service;
 
 import com.tiyujia.homesport.common.homepage.entity.HomePageData;
-import com.tiyujia.homesport.common.homepage.net.HomePageResult;
+import com.tiyujia.homesport.entity.Result;
 
 import retrofit2.http.POST;
 import rx.Observable;
@@ -15,5 +15,5 @@ public interface HomePageApi {
      * 获取首页信息
      */
     @POST("/v1/deva/getAll")
-    Observable<HomePageResult<HomePageData>> getAllHotInfo();
+    Observable<Result<HomePageData>> getAllHotInfo();
 }

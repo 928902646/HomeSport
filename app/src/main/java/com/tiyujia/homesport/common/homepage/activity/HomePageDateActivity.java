@@ -40,7 +40,7 @@ public class HomePageDateActivity extends ImmersiveActivity implements View.OnCl
         setView();
         initData();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        //保证recycleView不卡
+        //保证recycleView不卡顿
         recyclerView.setLayoutManager(layoutManager);
         layoutManager.setAutoMeasureEnabled(true);
         recyclerView.setLayoutManager(layoutManager);

@@ -40,7 +40,6 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
-            android:visibility="gone"
             >
             <Button
                 android:id="@+id/btn_login"
@@ -130,7 +129,6 @@
                 android:layout_gravity="center"
                 android:orientation="horizontal"
                 >
-
                 <LinearLayout
                     android:id="@+id/ll_attention"
                     android:layout_width="0dp"
@@ -156,7 +154,6 @@
                         android:layout_gravity="center"
                         />
                 </LinearLayout>
-
                 <LinearLayout
                     android:id="@+id/ll_fans"
                     android:layout_width="0dp"
