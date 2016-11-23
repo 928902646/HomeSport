@@ -55,6 +55,7 @@
         <activity android:name=".common.personal.activity.PersonalMsg"/>
         <activity android:name=".common.personal.activity.PersonalLogin"/>
         <activity android:name=".common.personal.activity.PersonalRegister"/>
+        <activity android:name=".common.personal.activity.PersonalForgetRegister"/>
         <activity android:name=".common.community.activity.CommunityAddAttention"/>
         <activity android:name=".common.community.activity.CommunityDynamicPublish"/>
         <activity android:name=".common.homepage.activity.HomePageVenueSurveyActivity"/>

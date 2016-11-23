@@ -16,10 +16,10 @@ import butterknife.Bind;
  * 邮箱:928902646@qq.com
  */
 
-public class PersonalRegister extends ImmersiveActivity implements View.OnClickListener{
+public class PersonalForgetRegister extends ImmersiveActivity implements View.OnClickListener{
     @Bind(R.id.ivBack)   ImageView ivBack;
     @Bind(R.id.tvProtocol)   TextView tvProtocol;
-    @Bind(R.id.tvRegister)   TextView tvRegister;
+    @Bind(R.id.tvSucceed)   TextView tvRegister;
     @Bind(R.id.tvVerCode)   TextView tvVerCode;
     @Bind(R.id.etPassword)   EditText etPassword;
     @Bind(R.id.etVerCode)   EditText etVerCode;
@@ -27,7 +27,7 @@ public class PersonalRegister extends ImmersiveActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register_activcity);
+        setContentView(R.layout.forget_register_activcity);
         setView();
     }
 

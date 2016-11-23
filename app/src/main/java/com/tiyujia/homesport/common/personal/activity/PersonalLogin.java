@@ -3,13 +3,11 @@ package com.tiyujia.homesport.common.personal.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.tiyujia.homesport.ImmersiveActivity;
 import com.tiyujia.homesport.R;
-
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * 作者: Cymbi on 2016/11/22 16:00.
@@ -20,7 +18,7 @@ public class PersonalLogin extends ImmersiveActivity implements View.OnClickList
     @Bind(R.id.tvRegister)
     TextView tvRegister;
     @Bind(R.id.ivBack)
-    TextView ivBack;
+    ImageView ivBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
