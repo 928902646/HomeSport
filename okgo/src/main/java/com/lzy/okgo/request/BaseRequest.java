@@ -418,7 +418,8 @@ public abstract class BaseRequest<R extends BaseRequest> {
         return adapter.adapt(getCall(converter));
     }
 
-    /** 普通调用，阻塞方法，同步请求执行 */
+    /** 普通调用，阻塞方法，同步请求执行
+     * @param */
     public Response execute() throws IOException {
         return getCall().execute();
     }

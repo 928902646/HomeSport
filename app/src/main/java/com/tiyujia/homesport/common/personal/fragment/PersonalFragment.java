@@ -17,6 +17,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
+import com.tiyujia.homesport.API;
+import com.tiyujia.homesport.App;
 import com.tiyujia.homesport.BaseFragment;
 import com.tiyujia.homesport.R;
 import com.tiyujia.homesport.common.personal.activity.PersonalActive;
@@ -28,10 +33,15 @@ import com.tiyujia.homesport.common.personal.activity.PersonalLogin;
 import com.tiyujia.homesport.common.personal.activity.PersonalMsg;
 import com.tiyujia.homesport.common.personal.activity.PersonalPanyanGold;
 import com.tiyujia.homesport.common.personal.activity.PersonalSystemSetting;
+import com.tiyujia.homesport.common.personal.model.UserInfoModel;
+import com.tiyujia.homesport.entity.JsonCallback;
+import com.tiyujia.homesport.entity.LzyResponse;
 import com.tiyujia.homesport.util.StatusBarUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Response;
 
 /**
  * Created by zzqybyb19860112 on 2016/10/18.
@@ -54,29 +64,49 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
     @Bind(R.id.re_login) RelativeLayout re_login;
     @Bind(R.id.btn_login)    Button btn_login;
     private SharedPreferences mShare;
-    private String mToken,mUserId;
+    private String mToken;
+    private int mUserId;
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.personal_home_fragment,null);
         ButterKnife.bind(this, view);
-        getInfo();
+        isLogin();
         return view;
     }
-
-    private void getInfo() {
-        mShare= getActivity().getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
-        mToken=mShare.getString("Token","");
-        if(TextUtils.isEmpty(mToken)){
-            ll_user.setVisibility(View.GONE);
-        }else {
+    private void isLogin() {
+        SharedPreferences share = getActivity().getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        mToken=share.getString("Token","");
+        mUserId=share.getInt("UserId",0);
+        if(!TextUtils.isEmpty(mToken)){
             re_login.setVisibility(View.GONE);
+            setData();
+        }else {
+            ll_user.setVisibility(View.GONE);
+
         }
     }
+    private void setData() {
+        OkGo.get(API.BASE_URL+"/v2/user/info")
+                .tag(this)
+                .params("token",mToken)
+                .params("account_id",mUserId)
+                .execute(new JsonCallback<UserInfoModel>() {
+                    @Override
+                    public void onSuccess(UserInfoModel userInfoModel, Call call, Response response) {
 
+                    }
+
+                    @Override
+                    public void onError(Call call, Response response, Exception e) {
+                        super.onError(call, response, e);
+
+                    }
+                });
+
+    }
     @Override
     protected void initData() {
-
         iv_msg.setOnClickListener(this);
         iv_setting.setOnClickListener(this);
         me_head.setOnClickListener(this);

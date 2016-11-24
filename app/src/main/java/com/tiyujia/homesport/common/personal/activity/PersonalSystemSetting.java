@@ -1,6 +1,7 @@
 package com.tiyujia.homesport.common.personal.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -75,7 +76,9 @@ public class PersonalSystemSetting extends ImmersiveActivity implements View.OnC
                 startActivity(new Intent(this,PersonalFeedback.class));
                 break;
             case R.id.tv_loginout:
-
+                SharedPreferences share = getSharedPreferences("UserInfo",MODE_PRIVATE);
+                SharedPreferences.Editor etr=share.edit();
+                etr.clear().commit();
                 break;
             case R.id.re_about:
                 startActivity(new Intent(this,PersonalAbout.class));

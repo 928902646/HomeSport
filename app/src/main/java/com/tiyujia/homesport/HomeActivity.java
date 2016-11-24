@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -40,7 +41,6 @@ public class HomeActivity extends ImmersiveActivity implements View.OnClickListe
     RecordFragment communityFragment=null;
     CommunityFragment recordFragment=null;
     PersonalFragment personalFragment=null;
-    private String token,id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,9 +66,14 @@ public class HomeActivity extends ImmersiveActivity implements View.OnClickListe
             }
         }
         setTabSelection(ACTIVE);// 设置默认选中的tab页
-        SharedPreferences share = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
-        token = share.getString("Token",null);
-        id = share.getString("UserId","");
+        try {
+            SharedPreferences share = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+            String token = share.getString("Token",null);
+            Log.i("token",token);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
     /**
      * 连按两次返回

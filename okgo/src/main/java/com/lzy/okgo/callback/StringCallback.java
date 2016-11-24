@@ -2,6 +2,8 @@ package com.lzy.okgo.callback;
 
 import com.lzy.okgo.convert.StringConvert;
 
+import org.json.JSONObject;
+
 import okhttp3.Response;
 
 /**
