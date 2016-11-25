@@ -3,7 +3,7 @@ package com.tiyujia.homesport.common.homepage.entity;
 import java.io.Serializable;
 
 /**
- * Created by zzqybyb19860112 on 2016/11/15.
+ * Created by zzqybyb19860112 on 2016/11/15.1
  */
 
 /**

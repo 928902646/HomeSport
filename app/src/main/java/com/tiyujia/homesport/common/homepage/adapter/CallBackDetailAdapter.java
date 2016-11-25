@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by zzqybyb19860112 on 2016/9/17.
+ * Created by zzqybyb19860112 on 2016/9/17.1
  */
 public class CallBackDetailAdapter extends RecyclerView.Adapter {
     Context context;

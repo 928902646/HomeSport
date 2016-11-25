@@ -53,7 +53,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by zzqybyb19860112 on 2016/10/18.4444
+ * Created by zzqybyb19860112 on 2016/10/18.44441
  */
 public class HomePageFragment extends BaseFragment implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener{
     HomePageService homePageService;

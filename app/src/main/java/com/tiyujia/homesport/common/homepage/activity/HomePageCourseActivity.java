@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 
 /**
  * 作者: Cymbi on 2016/11/17 18:17.
- * 邮箱:928902646@qq.com
+ * 邮箱:928902646@qq.com1
  */
 
 public class HomePageCourseActivity extends ImmersiveActivity {

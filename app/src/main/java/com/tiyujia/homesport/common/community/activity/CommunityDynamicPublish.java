@@ -19,7 +19,7 @@ import com.tiyujia.homesport.widget.ImagePickerAdapter;
 import java.util.ArrayList;
 
 /**
- * 作者: Cymbi on 2016/11/18 14:22.
+ * 作者: Cymbi on 2016/11/18 14:22.1
  * 邮箱:928902646@qq.com
  */
 

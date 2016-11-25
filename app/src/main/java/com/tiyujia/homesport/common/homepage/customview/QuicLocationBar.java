@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 /**
- * Created by zzqybyb19860112 on 2016/11/18.
+ * Created by zzqybyb19860112 on 2016/11/18.1
  */
 
 public class QuicLocationBar extends View {

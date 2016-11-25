@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by zzqybyb19860112 on 2016/11/22.
+ * Created by zzqybyb19860112 on 2016/11/22.1
  */
 
 public class HomePageDiscussAdapter  extends RecyclerView.Adapter{

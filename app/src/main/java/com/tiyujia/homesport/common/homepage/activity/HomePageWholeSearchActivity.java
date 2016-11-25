@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import butterknife.Bind;
-
+//1
 public class HomePageWholeSearchActivity extends NewBaseActivity implements View.OnClickListener{
     @Bind(R.id.tab)                     TabLayout tab;
     @Bind(R.id.vp)                      ViewPager vp;

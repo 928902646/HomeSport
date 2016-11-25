@@ -1,7 +1,7 @@
 package com.tiyujia.homesport.common.homepage.entity;
 
 /**
- * Created by zzqybyb19860112 on 2016/11/18.
+ * Created by zzqybyb19860112 on 2016/11/18.1
  */
 
 public class CityBean {

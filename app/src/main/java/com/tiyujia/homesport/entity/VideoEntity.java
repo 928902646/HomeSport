@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import java.io.Serializable;
 
 /**
- * Created by zzqybyb19860112 on 2016/11/24.
+ * Created by zzqybyb19860112 on 2016/11/24.1
  */
 
 public class VideoEntity implements Serializable {

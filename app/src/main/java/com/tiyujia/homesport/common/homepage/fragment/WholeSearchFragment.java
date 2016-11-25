@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by zzqybyb19860112 on 2016/11/14.
+ * Created by zzqybyb19860112 on 2016/11/14.1
  */
 
 public class WholeSearchFragment extends BaseFragment {

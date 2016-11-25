@@ -28,7 +28,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
-
+//1
 public class HomePageSetCityActivity extends AppCompatActivity {
     GridView gvHotCity;
     List<String> testCities;

@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by zzqybyb19860112 on 2016/11/18.
+ * Created by zzqybyb19860112 on 2016/11/18.1
  */
 
 public class HomePageCityAdapter extends BaseAdapter {

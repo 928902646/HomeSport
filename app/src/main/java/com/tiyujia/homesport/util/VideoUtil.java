@@ -8,7 +8,7 @@ import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 
 /**
- * Created by zzqybyb19860112 on 2016/11/24.
+ * Created by zzqybyb19860112 on 2016/11/24.1
  */
 
 public class VideoUtil {

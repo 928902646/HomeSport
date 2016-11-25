@@ -30,7 +30,7 @@ import com.tiyujia.homesport.widget.TablayoutVPAdapter;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;
-
+//1
 public class HomePageVenueSurveyActivity extends NewBaseActivity implements View.OnClickListener{
     @Bind(R.id.tab)    TabLayout tab;
     @Bind(R.id.vp)     ViewPager vp;

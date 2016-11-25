@@ -23,7 +23,7 @@ import java.util.List;
 import butterknife.ButterKnife;
 
 
-/**
+/**1
  * Created by zzqybyb19860112 on 2016/10/18.
  */
 public class CommunityFragment extends BaseFragment{

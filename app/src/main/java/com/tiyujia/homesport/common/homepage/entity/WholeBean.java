@@ -1,7 +1,7 @@
 package com.tiyujia.homesport.common.homepage.entity;
 
 /**
- * Created by zzqybyb19860112 on 2016/11/23.
+ * Created by zzqybyb19860112 on 2016/11/23.1
  */
 
 import java.io.Serializable;
