@@ -248,4 +248,5 @@ public class HomeActivity extends ImmersiveActivity implements View.OnClickListe
                 break;
         }
     }
+
 }

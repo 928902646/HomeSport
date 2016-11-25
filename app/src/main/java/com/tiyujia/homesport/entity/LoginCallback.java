@@ -16,7 +16,7 @@ import com.lzy.okgo.request.BaseRequest;
  * 修订历史：
  * ================================================
  */
-public abstract class DialogCallback<T> extends JsonCallback<T> {
+public abstract class LoginCallback<T> extends JsonCallback<T> {
 
     private ProgressDialog dialog;
 
@@ -25,10 +25,10 @@ public abstract class DialogCallback<T> extends JsonCallback<T> {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        dialog.setMessage("请求网络中...");
+        dialog.setMessage("登录中...");
     }
 
-    public DialogCallback(Activity activity) {
+    public LoginCallback(Activity activity) {
         super();
         initDialog(activity);
     }

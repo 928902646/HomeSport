@@ -14,7 +14,7 @@
             />
         <com.makeramen.roundedimageview.RoundedImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/me_head"
+            android:id="@+id/ivAvatar"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:scaleType="centerCrop"
@@ -39,6 +39,7 @@
             android:text="昵称"
             />
         <EditText
+            android:id="@+id/etNickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="请输入昵称"
@@ -48,6 +49,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/day_edit_hit_color"
             android:background="@null"
+            android:textCursorDrawable="@null"
             />
     </RelativeLayout>
     <TextView
@@ -64,6 +66,7 @@
             android:text="性别"
             />
         <TextView
+            android:id="@+id/tvSex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="您的性别"
@@ -73,6 +76,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/day_edit_hit_color"
             android:background="@null"
+            android:textCursorDrawable="@null"
             />
     </RelativeLayout>
     <TextView
@@ -89,6 +93,7 @@
             android:text="生日"
             />
         <TextView
+            android:id="@+id/tvBirthday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="您的生日"
@@ -98,6 +103,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/day_edit_hit_color"
             android:background="@null"
+            android:textCursorDrawable="@null"
             />
     </RelativeLayout>
     <TextView
@@ -113,16 +119,18 @@
             style="@style/personal_item_textview"
             android:text="所在地"
             />
-        <EditText
+        <TextView
+            android:id="@+id/tvAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="输入您的所在地"
+            android:hint="您的所在地"
             android:textSize="15sp"
             android:textColorHint="@color/day_edit_hit_color"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:textColor="@color/day_edit_hit_color"
             android:background="@null"
+            android:textCursorDrawable="@null"
             />
     </RelativeLayout>
     <TextView
@@ -139,6 +147,7 @@
             android:text="签名"
             />
         <EditText
+            android:id="@+id/etSignature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="输入您的签名"
@@ -148,6 +157,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/day_edit_hit_color"
             android:background="@null"
+            android:textCursorDrawable="@null"
             />
     </RelativeLayout>
 

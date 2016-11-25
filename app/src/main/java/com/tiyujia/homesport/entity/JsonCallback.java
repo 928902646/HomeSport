@@ -51,7 +51,7 @@ public abstract class JsonCallback<T> extends AbsCallback<T> {
 
         //以下代码是通过泛型解析实际参数,泛型必须传
 
-        //com.lzy.demo.callback.DialogCallback<com.lzy.demo.model.Login> 得到类的泛型，包括了泛型参数
+        //com.lzy.demo.callback.LoginCallback<com.lzy.demo.model.Login> 得到类的泛型，包括了泛型参数
         Type genType = getClass().getGenericSuperclass();
         //从上述的类中取出真实的泛型参数，有些类可能有多个泛型，所以是数值
         Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
