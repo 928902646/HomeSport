@@ -1,7 +1,9 @@
 package com.tiyujia.homesport.common.homepage.fragment;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
@@ -10,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +40,8 @@ import com.tiyujia.homesport.common.homepage.net.HomePageDataManager;
 import com.tiyujia.homesport.entity.Result;
 import com.tiyujia.homesport.common.homepage.service.HomePageService;
 import com.tiyujia.homesport.util.RefreshUtil;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -66,6 +71,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     private Toolbar tb;
     private AppBarLayout appbar;
     private State state;
+    private HomePageFragmentReceiver mReceiver;
     String selectCity;
     private List<HomePageBannerEntity> banners = new ArrayList<>();
     int [] picAddress=new int[]{R.drawable.demo_05,R.drawable.demo_06,R.drawable.demo_09,R.drawable.demo_10};
@@ -101,7 +107,12 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         });
         ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
         String nowCity=App.nowCity;
-        tvSearchCity.setText(nowCity);
+        if (nowCity==null){
+            tvSearchCity.setText("定位中");
+        }else {
+            tvSearchCity.setText(nowCity);
+            tvSearchCity.postInvalidate();
+        }
         return view;
     }
     @Override
@@ -180,31 +191,42 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     @Override public void onResume() {
         super.onResume();
         cbHomePage.startTurning(2500);
+        mReceiver=new HomePageFragmentReceiver();
+        IntentFilter filter=new IntentFilter();
+        filter.addAction("GET_LOCATION");
+        getActivity().registerReceiver(mReceiver,filter);
     }
     @Override public void onPause() {
         super.onPause();
         cbHomePage.stopTurning();
+        getActivity().unregisterReceiver(mReceiver);
     }
-
+    private class HomePageFragmentReceiver extends BroadcastReceiver{
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String city=intent.getStringExtra("CITY");
+            tvSearchCity.setText(city);
+        }
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.ivHomePageAllVenue:
+            case R.id.ivHomePageAllVenue://更多岩场
                 getActivity().startActivity(new Intent(getActivity(), HomePageVenueSurveyActivity.class));
                 break;
-            case R.id.tvCourse:
+            case R.id.tvCourse://教程
                 getActivity().startActivity(new Intent(getActivity(), HomePageCourseActivity.class));
                 break;
-            case R.id.tvEquipment:
+            case R.id.tvEquipment://装备控
                 getActivity().startActivity(new Intent(getActivity(), HomePageEquipmentActivity.class));
                 break;
-            case R.id.tvDate:
+            case R.id.tvDate://求约
                 getActivity().startActivity(new Intent(getActivity(), HomePageDateActivity.class));
                 break;
-            case R.id.tvSearchDetail:
+            case R.id.tvSearchDetail://全局搜索框
                 getActivity().startActivity(new Intent(getActivity(), HomePageWholeSearchActivity.class));
                 break;
-            case R.id.tvSearchCity:
+            case R.id.tvSearchCity://城市定位按钮
                 Intent intent=new Intent(getActivity(), HomePageSetCityActivity.class);
                 startActivityForResult(intent,10001);
                 break;

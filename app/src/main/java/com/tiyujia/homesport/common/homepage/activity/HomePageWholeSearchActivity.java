@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.tiyujia.homesport.ImmersiveActivity;
+import com.tiyujia.homesport.NewBaseActivity;
 import com.tiyujia.homesport.R;
 import com.tiyujia.homesport.common.homepage.adapter.WholeSearchRecordAdapter;
 import com.tiyujia.homesport.common.homepage.dao.DBWholeContext;
@@ -24,10 +24,9 @@ import com.tiyujia.homesport.widget.TablayoutVPAdapter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import butterknife.Bind;
 
-public class HomePageWholeSearchActivity extends ImmersiveActivity implements View.OnClickListener{
+public class HomePageWholeSearchActivity extends NewBaseActivity implements View.OnClickListener{
     @Bind(R.id.tab)                     TabLayout tab;
     @Bind(R.id.vp)                      ViewPager vp;
     @Bind(R.id.tvWholeSearchClose)      TextView tvWholeSearchClose;
@@ -109,14 +108,11 @@ public class HomePageWholeSearchActivity extends ImmersiveActivity implements Vi
         mFragments.add(new AttendFragment());
         wholeContext=new DBWholeContext(this);
         list=wholeContext.query();
-        WholeBean bean=new WholeBean();
-        bean.setOrderNumber(1);
-        bean.setText("测试一下");
-        list.add(bean);
         handler.sendEmptyMessage(HANDLE_WHOLE_RECORD_DATA);
     }
     private void setListeners() {
         tvClearWholeRecord.setOnClickListener(this);
+        tvWholeSearchClose.setOnClickListener(this);
     }
 
     @Override
@@ -128,6 +124,9 @@ public class HomePageWholeSearchActivity extends ImmersiveActivity implements Vi
                 tvWholeSearchTitle.setVisibility(View.GONE);
                 rvWholeSearchResult.setVisibility(View.GONE);
                 tabResult.setVisibility(View.VISIBLE);
+                break;
+            case R.id.tvWholeSearchClose:
+                finish();
                 break;
         }
     }

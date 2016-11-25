@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.tiyujia.homesport.ImmersiveActivity;
 import com.tiyujia.homesport.R;
+import com.tiyujia.homesport.common.homepage.fragment.CourseAllFragment;
 import com.tiyujia.homesport.common.homepage.fragment.EquipmentAllFragment;
 import com.tiyujia.homesport.widget.TablayoutVPAdapter;
 
@@ -24,12 +25,9 @@ import butterknife.ButterKnife;
  */
 
 public class HomePageCourseActivity extends ImmersiveActivity {
-    @Bind(R.id.ivBack)
-    ImageView ivBack;
-    @Bind(R.id.tab)
-    TabLayout tab;
-    @Bind(R.id.vp)
-    ViewPager vp;
+    @Bind(R.id.ivBack)      ImageView ivBack;
+    @Bind(R.id.tab)         TabLayout tab;
+    @Bind(R.id.vp)          ViewPager vp;
     private List<String> mTitle=new ArrayList<String>();
     private List<Fragment> mFragment = new ArrayList<Fragment>();
     @Override
@@ -56,11 +54,11 @@ public class HomePageCourseActivity extends ImmersiveActivity {
 
     private void setview() {
         mTitle.add("全部");
-        mTitle.add("鞋子");
-        mTitle.add("动力绳");
-        mTitle.add("头盔");
-        mTitle.add("主锁");
-        mFragment.add(new EquipmentAllFragment());
+        mTitle.add("抱石");
+        mTitle.add("绳结");
+        mTitle.add("动作");
+        mTitle.add("新手");
+        mFragment.add(new CourseAllFragment());
         mFragment.add(new EquipmentAllFragment());
         mFragment.add(new EquipmentAllFragment());
         mFragment.add(new EquipmentAllFragment());

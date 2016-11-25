@@ -84,7 +84,13 @@ public class HomePageSetCityActivity extends AppCompatActivity {
         mCityLit=(ListView) findViewById(R.id.city_list);
         mQuicLocationBar.setTextDialog(overlay);
         String nowCity=App.nowCity;
-        tvNowCity.setText(nowCity);
+        if (nowCity==null){
+            tvNowCity.setText("定位中");
+            tvNowCity.postInvalidate();
+        }else {
+            tvNowCity.setText(nowCity);
+            tvNowCity.postInvalidate();
+        }
         initList();
         setListeners();
     }
