@@ -34,7 +34,13 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>
-
+    <style name="transparentFrameWindowStyle" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/photo_choose_bg</item>
+    </style>
+    <style name="log_out_dialog">
+        <item name="android:windowEnterAnimation">@anim/log_out_in_dialog</item>
+        <item name="android:windowExitAnimation">@anim/log_out_exit_dialog</item>
+    </style>
     <style name="personal_title_background">
         <item name="android:layout_width">match_parent</item>
         <item name="android:background">@color/white</item>

@@ -55,8 +55,8 @@ public class JsonConvert<T> implements Converter<T> {
                 throw new IllegalStateException("手机号码未注册");
             } else if (state == 40301) {
                 throw new IllegalStateException("用户ID与用户不匹配，查询失败！！！");
-            } else if (state == 106) {
-                throw new IllegalStateException("用户账户被禁用");
+            } else if (state == 401) {
+                throw new IllegalStateException("地址参数错误");
             } else if (state == 300) {
                 throw new IllegalStateException("其他乱七八糟的等");
             } else {

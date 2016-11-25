@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,10 @@ import com.tiyujia.homesport.common.personal.activity.PersonalSystemSetting;
 import com.tiyujia.homesport.common.personal.model.UserInfoModel;
 import com.tiyujia.homesport.entity.JsonCallback;
 import com.tiyujia.homesport.entity.LzyResponse;
+import com.tiyujia.homesport.util.PicUtil;
+import com.tiyujia.homesport.util.PicassoUtil;
 import com.tiyujia.homesport.util.StatusBarUtil;
+import com.tiyujia.homesport.util.StringUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -50,9 +54,12 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
 
     @Bind(R.id.iv_msg) ImageView iv_msg;
     @Bind(R.id.iv_setting) ImageView iv_setting;
-    @Bind(R.id.me_head) ImageView me_head;
-    @Bind(R.id.iv_lv) TextView iv_lv;
-    @Bind(R.id.tv_name) TextView tv_name;
+    @Bind(R.id.ivAvatar) ImageView ivAvatar;
+    @Bind(R.id.tvLv) TextView tvLv;
+    @Bind(R.id.tvGz) TextView tvGz;
+    @Bind(R.id.tvFs) TextView tvFs;
+    @Bind(R.id.tvCoin) TextView tvCoin;
+    @Bind(R.id.tvName) TextView tvName;
     @Bind(R.id.tv_intro) TextView tv_intro;
     @Bind(R.id.ll_attention) LinearLayout ll_attention;
     @Bind(R.id.ll_fans) LinearLayout ll_fans;
@@ -86,15 +93,36 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
 
         }
     }
-    private void setData() {
-        OkGo.get(API.BASE_URL+"/v2/user/info")
+    public void setData() {
+        OkGo.get(API.BASE_URL+"/v2/user/center_info")
                 .tag(this)
                 .params("token",mToken)
                 .params("account_id",mUserId)
                 .execute(new JsonCallback<UserInfoModel>() {
                     @Override
                     public void onSuccess(UserInfoModel userInfoModel, Call call, Response response) {
-
+                             if(userInfoModel.state==200){
+                                 PicassoUtil.handlePic(getActivity(), PicUtil.getImageUrlDetail(getActivity(),StringUtil.isNullAvatar(userInfoModel.data.avatar), 320, 320),ivAvatar,320,320);
+                                 String nickname=userInfoModel.data.nickname.toString();
+                                 String level =userInfoModel.data.level.pointDesc.toString();
+                                 String signature=userInfoModel.data.signature.toString();
+                                 int fs=userInfoModel.data.fs;
+                                 int gz=userInfoModel.data.gz;
+                                 int coin=userInfoModel.data.coin;
+                                 if(TextUtils.isEmpty(signature)){
+                                     tv_intro.setText("个人简介: 这个人很懒，什么也没有留下");
+                                 }else {
+                                     tv_intro.setText("个人简介："+signature);
+                                 }
+                                 tvName.setText(nickname);
+                                 tvLv.setText(level);
+                                 tvGz.setText(gz+"");
+                                 tvFs.setText(fs+"");
+                                 tvCoin.setText(coin+"");
+                             }
+                        if (userInfoModel.state==401){
+                            showToast("Token失效");
+                        }
                     }
 
                     @Override
@@ -109,8 +137,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
     protected void initData() {
         iv_msg.setOnClickListener(this);
         iv_setting.setOnClickListener(this);
-        me_head.setOnClickListener(this);
-        iv_lv.setOnClickListener(this);
+        ivAvatar.setOnClickListener(this);
         ll_attention.setOnClickListener(this);
         ll_fans.setOnClickListener(this);
         ll_gold.setOnClickListener(this);
@@ -128,7 +155,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
             case R.id.iv_setting:
                 getActivity().startActivity(new Intent(getActivity(), PersonalSystemSetting.class));
                 break;
-            case R.id.me_head:
+            case R.id.ivAvatar:
                 Toast.makeText(getActivity(),"hdksajhdksja",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.ll_attention:

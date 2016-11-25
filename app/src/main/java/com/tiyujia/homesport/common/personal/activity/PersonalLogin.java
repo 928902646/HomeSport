@@ -13,12 +13,11 @@ import android.widget.TextView;
 
 import com.lzy.okgo.OkGo;
 import com.tiyujia.homesport.API;
-import com.tiyujia.homesport.App;
 import com.tiyujia.homesport.HomeActivity;
 import com.tiyujia.homesport.ImmersiveActivity;
 import com.tiyujia.homesport.R;
 import com.tiyujia.homesport.common.personal.model.LoginInfoModel;
-import com.tiyujia.homesport.entity.JsonCallback;
+import com.tiyujia.homesport.entity.LoginCallback;
 import com.tiyujia.homesport.entity.LzyResponse;
 
 import butterknife.Bind;
@@ -69,7 +68,7 @@ public class PersonalLogin extends ImmersiveActivity implements View.OnClickList
                                 .tag(this)
                                 .params("phone",phone)
                                 .params("pwd",pwd)
-                                .execute(new JsonCallback<LzyResponse<LoginInfoModel>>(){
+                                .execute(new LoginCallback<LzyResponse<LoginInfoModel>>(this){
                                     @Override
                                     public void onSuccess(LzyResponse<LoginInfoModel> Response, Call call, Response response) {
                                         if(Response.state==200){
